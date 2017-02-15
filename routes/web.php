@@ -23,6 +23,12 @@ Route::get('/test-pdf', function () {
 	$data['phone'] = '01912077825';
 	$data['email'] = 'shakil@gmail.com';
 
+	$generator = new Picqer\Barcode\BarcodeGeneratorPNG();
+	$barcode = $generator->getBarcode('Hello', $generator::TYPE_CODE_128, 3, 170);
+
+	$data['barcode'] = base64_encode($barcode);
+	// exit();
+
 	$pdf = App::make('snappy.pdf.wrapper');
 	$pdf->loadView('pdf.ticket', compact('data'));
 	$pdf->setPaper('a4')->setOption('margin-bottom', '0mm');
