@@ -14,6 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/test-pdf', function () {
+    $snappy = App::make('snappy.pdf');
+    // dd($snappy);
+
+	$html = '<h1>Bill</h1><p>You owe me money, dude.</p>';
+	$snappy->generateFromHtml($html, '/tmp/bill-123.pdf');
+	// $snappy->generate('http://www.github.com', '/tmp/github.pdf');
+});
 
 Auth::routes();
 
