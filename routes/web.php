@@ -15,12 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/test-pdf', function () {
-    $snappy = App::make('snappy.pdf');
-    // dd($snappy);
 
-	$html = '<h1>Bill</h1><p>You owe me money, dude.</p>';
-	$snappy->generateFromHtml($html, '/tmp/bill-123.pdf');
-	// $snappy->generate('http://www.github.com', '/tmp/github.pdf');
+	$data['gate'] = 420;
+	$data['slogan'] = 'Amar Shahosh';
+	$data['reg_id'] = 'YB-20201';
+	$data['name'] = 'NH Shakil';
+	$data['phone'] = '01912077825';
+	$data['email'] = 'shakil@gmail.com';
+
+	$pdf = App::make('snappy.pdf.wrapper');
+	$pdf->loadView('pdf.ticket', compact('data'));
+	$pdf->setPaper('a4')->setOption('margin-bottom', '0mm');
+	return $pdf->inline();
 });
 
 Auth::routes();
