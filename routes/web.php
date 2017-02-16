@@ -1,5 +1,9 @@
 <?php
 
+use App\Mail\SendTicket;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +18,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test-pdf', function () {
+Route::get('/test-pdf', function (Request $request) {
+
+	Mail::to('nhevan@gmailx.com')->queue(new SendTicket());
 
 	$data['gate'] = 420;
 	$data['slogan'] = 'Amar Shahosh';
@@ -23,16 +29,19 @@ Route::get('/test-pdf', function () {
 	$data['phone'] = '01912077825';
 	$data['email'] = 'shakil@gmail.com';
 
-	$generator = new Picqer\Barcode\BarcodeGeneratorPNG();
-	$barcode = $generator->getBarcode('Hello', $generator::TYPE_CODE_128, 3, 170);
-
+	// $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
+	// $barcode = $generator->getBarcode('Hello', $generator::TYPE_CODE_128, 3, 170);
+	$barcode = 'hello';
 	$data['barcode'] = base64_encode($barcode);
 	// exit();
 
-	$pdf = App::make('snappy.pdf.wrapper');
-	$pdf->loadView('pdf.ticket', compact('data'));
-	$pdf->setPaper('a4')->setOption('margin-bottom', '0mm');
-	return $pdf->inline();
+	// $pdf = App::make('snappy.pdf.wrapper');
+	// $pdf->loadView('pdf.ticket', compact('data'));
+	// $pdf->setPaper('a4')->setOption('margin-bottom', '0mm');
+	// dd($request->user());
+	
+	return "Ticket generated and email sent successfully.";
+	// return $pdf->inline();
 });
 
 Auth::routes();
