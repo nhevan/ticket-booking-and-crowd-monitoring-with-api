@@ -18,6 +18,12 @@ use Illuminate\Support\Facades\Mail;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/register-visitor', function () {
+    return view('register-visitor');
+});
+Route::post('/generate-ticket', 'TicketsController@generateTicket');
+
 Route::get('/test-pdf', 'TicketsController@generateTicket');
 
 Auth::routes();

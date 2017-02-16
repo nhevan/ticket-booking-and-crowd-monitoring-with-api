@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ticket;
 use App\Mail\SendTicket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -20,27 +21,44 @@ class TicketsController extends Controller
 	{
 		$generator = new BarcodeGeneratorPNG();
 		$barcode = $generator->getBarcode($reg_id, $generator::TYPE_CODE_128, 3, 170);
-
+		
 		return base64_encode($barcode);
 	}
 
-    public function generateTicket()
+	/**
+	 * generates the next registration id for the ticket
+	 * @return string reg_id
+	 */
+	protected function getNextRegId()
+	{
+		$reg_id_start_number = 40000;
+
+		$last_ticket_id = Ticket::all()->pluck('id')->last();
+	    $reg_code = $reg_id_start_number + $last_ticket_id + 1;
+	    $reg_id = 'YB-'.$reg_code;
+	    return $reg_id;
+	}
+
+	/**
+	 * saves the ticket and emails a pdf version to the ticket owner
+	 * @param  Request $request 
+	 * @return [type]           [description]
+	 */
+    public function generateTicket(Request $request)
     {
-    	Mail::to('nhevan@gmailx.com')->queue(new SendTicket());
-		$ticket['slogan'] = 'Amar Shahosh';
-		$ticket['reg_id'] = 'YB-20201';
-		$ticket['name'] = 'NH Shakil';
-		$ticket['phone'] = '01912077825';
-		$ticket['email'] = 'shakil@gmail.com';
-		$ticket['barcode'] = $this->getBarCode($ticket['reg_id']);
+    	$ticket = new Ticket;
 
+    	$ticket->name = $request->name;
+    	$ticket->phone = $request->phone;
+    	$ticket->email = $request->email;
+    	$ticket->slogan = 'Amar Shahosh';
+    	$ticket->reg_id = $this->getNextRegId();
+    	$ticket->barcode = $this->getBarCode($ticket->reg_id);
 
-		$pdf = App::make('snappy.pdf.wrapper');
-		$pdf->loadView('pdf.ticket', compact('ticket'));
-		$pdf->setPaper('a4')->setOption('margin-bottom', '0mm');
-		// dd($request->user());
+		$ticket->save();
+
+    	Mail::to($ticket->email)->queue(new SendTicket($ticket));
 		
-		// return "Ticket generated and email sent successfully.";
-		return $pdf->inline();
+    	return view('ticket-sent');
     }
 }

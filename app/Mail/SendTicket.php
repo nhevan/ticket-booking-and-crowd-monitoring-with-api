@@ -39,7 +39,8 @@ class SendTicket extends Mailable
 
         $attachment = $pdf->inline();
 
-        return $this->from('example@example.com')
+        return $this->from(['address' => 'example@example.com', 'name' => 'Joy Bangla Concert'])
+                    ->subject('Your Joy Bangla concert e-Ticket')
                     ->markdown('mails.sendTicket')
                     ->with([
                         'ticket' => $this->ticket
