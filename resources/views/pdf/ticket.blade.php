@@ -19,7 +19,7 @@
 				  	<td style="border: 2px solid #e6e6e6;border-spacing: 0px;padding: 0px;line-height: 18px;">
 					  	<table style="border-spacing: 0px;">
 						  	<tr>
-							  	<td style="border-bottom: 4px solid #e6e6e6;border-spacing: 0px;padding: 12px;"><img src="data:image/png;base64,{{ $ticket['barcode'] }}" style="width: 100%; height: 90px;"/></td>
+							  	<td style="border-bottom: 4px solid #e6e6e6;border-spacing: 0px;padding: 12px;"><img src="data:image/png;base64,{{$ticket['barcode']}}" style="width: 100%; height: 90px;"/></td>
 						  	</tr>
 						  	<tr>
 							  	<td style="padding: 12px;">
