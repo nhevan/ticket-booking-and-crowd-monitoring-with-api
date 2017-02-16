@@ -30,20 +30,20 @@ class SendTicket extends Mailable
      */
     public function build()
     {
-        $data['gate'] = 420;
-        $data['slogan'] = 'Amar Shahosh';
-        $data['reg_id'] = 'YB-20201';
-        $data['name'] = 'NH Shakil';
-        $data['phone'] = '01912077825';
-        $data['email'] = 'shakil@gmail.com';
+        $ticket['gate'] = 420;
+        $ticket['slogan'] = 'Amar Shahosh';
+        $ticket['reg_id'] = 'YB-20201';
+        $ticket['name'] = 'NH Shakil';
+        $ticket['phone'] = '01912077825';
+        $ticket['email'] = 'shakil@gmail.com';
 
         $generator = new BarcodeGeneratorPNG();
         $barcode = $generator->getBarcode('Hello', $generator::TYPE_CODE_128, 3, 170);
 
-        $data['barcode'] = base64_encode($barcode);
+        $ticket['barcode'] = base64_encode($barcode);
 
         $pdf = App::make('snappy.pdf.wrapper');
-        $pdf->loadView('pdf.ticket', compact('data'));
+        $pdf->loadView('pdf.ticket', compact('ticket'));
         $pdf->setPaper('a4')->setOption('margin-bottom', '0mm');
         // dd($request->user());
         
@@ -53,7 +53,7 @@ class SendTicket extends Mailable
         return $this->from('example@example.com')
                     ->markdown('mails.sendTicket')
                     ->with([
-                        'data' => $data
+                        'ticket' => $ticket
                     ])
                     ->attachData($attachment, 'e-ticket.pdf', [
                         'mime' => 'application/pdf',

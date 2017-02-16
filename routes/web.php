@@ -18,31 +18,7 @@ use Illuminate\Support\Facades\Mail;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test-pdf', function (Request $request) {
-
-	Mail::to('nhevan@gmailx.com')->queue(new SendTicket());
-
-	$data['gate'] = 420;
-	$data['slogan'] = 'Amar Shahosh';
-	$data['reg_id'] = 'YB-20201';
-	$data['name'] = 'NH Shakil';
-	$data['phone'] = '01912077825';
-	$data['email'] = 'shakil@gmail.com';
-
-	// $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
-	// $barcode = $generator->getBarcode('Hello', $generator::TYPE_CODE_128, 3, 170);
-	$barcode = 'hello';
-	$data['barcode'] = base64_encode($barcode);
-	// exit();
-
-	// $pdf = App::make('snappy.pdf.wrapper');
-	// $pdf->loadView('pdf.ticket', compact('data'));
-	// $pdf->setPaper('a4')->setOption('margin-bottom', '0mm');
-	// dd($request->user());
-	
-	return "Ticket generated and email sent successfully.";
-	// return $pdf->inline();
-});
+Route::get('/test-pdf', 'TicketsController@generateTicket');
 
 Auth::routes();
 
