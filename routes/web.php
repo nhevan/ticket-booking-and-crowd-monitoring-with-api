@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/questionnaire', 'QuestionsController@questionnaire');
 
-Route::post('/register-visitor', 'TicketsController@registerVisitor');
+Route::get('/register-visitor', 'TicketsController@registerVisitor');
 
 Route::post('/generate-ticket', 'TicketsController@generateTicket');
 

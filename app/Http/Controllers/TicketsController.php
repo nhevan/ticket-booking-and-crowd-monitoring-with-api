@@ -75,12 +75,13 @@ class TicketsController extends Controller
     {
     	$messages = [
 		    'email.unique' => 'A ticket has already been registered with this email address.',
-		    'phone.digits' => 'Your mobile number can only be of 10 digits excluding +880'
+		    'phone.digits' => 'Your mobile number can only be of 10 digits excluding +880.',
+		    'phone.unique' => 'This phone number has already been used to request a ticket.'
 		];
     	return $this->validate($request, [
     		'name' => 'required',
     		'email' => 'required|email|unique:tickets,email',
-    		'phone' => 'required|numeric|digits:10'
+    		'phone' => 'required|numeric|digits:10|unique:tickets,phone'
 		], $messages);
     }
 
@@ -91,6 +92,10 @@ class TicketsController extends Controller
      */
     public function registerVisitor(Request $request)
     {
+    	// dd($request->all());
+    	if (!$request->question) {
+    		abort(405, 'Please dont try anything fishy.');
+    	}
     	$question_id = Crypt::decrypt($request->question);
     	$actual_answer = Question::findOrFail($question_id)->right_option;
 

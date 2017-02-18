@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><h3>Questionnaire Page</h3></div>
                 <div class="panel-body">
-                    <form method="POST" action="/register-visitor">
+                    <form method="GET" action="/register-visitor">
 					    {{ csrf_field() }}
 						<p>{{ $question['question'] }}?</p>
 						{{ Form::hidden('question', Crypt::encrypt($question['id']) ) }}
