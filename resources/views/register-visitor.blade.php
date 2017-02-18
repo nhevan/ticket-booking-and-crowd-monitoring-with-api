@@ -9,7 +9,7 @@
                 <div class="panel-body">
                     <form method="POST" action="/generate-ticket">
 					    {{ csrf_field() }}
-					    <input type="hidden" name="slogan" value="{{ $slogan }}">
+					    {{ Form::hidden('slogan', Crypt::encrypt($slogan) ) }}
 					    <div class="form-group">
 					    	<input type="text" class="form-control" name='name' placeholder="Enter your name" value="{{ old('name') }}" required>
 					    </div>

@@ -10,7 +10,7 @@
                     <form method="POST" action="/register-visitor">
 					    {{ csrf_field() }}
 						<p>{{ $question['question'] }}?</p>
-						<input type="hidden" name="question" value="{{ $question['id'] }}">
+						{{ Form::hidden('question', Crypt::encrypt($question['id']) ) }}
 						<div class="radio">
 						  <label>
 						    <input type="radio" name="answer" value="{{ $question['option1'] }}" required>

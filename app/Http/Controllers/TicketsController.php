@@ -8,6 +8,7 @@ use App\Mail\SendTicket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Crypt;
 use Picqer\Barcode\BarcodeGeneratorPNG;
 
 class TicketsController extends Controller
@@ -54,7 +55,7 @@ class TicketsController extends Controller
     	$ticket->name = $request->name;
     	$ticket->phone = $request->phone;
     	$ticket->email = $request->email;
-    	$ticket->slogan = $request->slogan;
+    	$ticket->slogan = Crypt::decrypt($request->slogan);
     	$ticket->reg_id = $this->getNextRegId();
     	$ticket->barcode = $this->getBarCode($ticket->reg_id);
 
@@ -90,7 +91,8 @@ class TicketsController extends Controller
      */
     public function registerVisitor(Request $request)
     {
-    	$actual_answer = Question::findOrFail($request->question)->right_option;
+    	$question_id = Crypt::decrypt($request->question);
+    	$actual_answer = Question::findOrFail($question_id)->right_option;
 
     	if($request->answer == $actual_answer){
     		return view('register-visitor', ['slogan' => $request->slogan]);
