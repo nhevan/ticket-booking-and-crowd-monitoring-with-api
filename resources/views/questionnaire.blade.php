@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><h3>Questionaire Page</h3></div>
+                <div class="panel-heading text-center"><h3>Questionnaire Page</h3></div>
                 <div class="panel-body">
                     <form method="POST" action="/register-visitor">
 					    {{ csrf_field() }}
