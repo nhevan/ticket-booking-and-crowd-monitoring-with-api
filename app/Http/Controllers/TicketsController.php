@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ticket;
+use App\Question;
 use App\Mail\SendTicket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -53,7 +54,7 @@ class TicketsController extends Controller
     	$ticket->name = $request->name;
     	$ticket->phone = $request->phone;
     	$ticket->email = $request->email;
-    	$ticket->slogan = 'Amar Shahosh';
+    	$ticket->slogan = $request->slogan;
     	$ticket->reg_id = $this->getNextRegId();
     	$ticket->barcode = $this->getBarCode($ticket->reg_id);
 
@@ -80,5 +81,21 @@ class TicketsController extends Controller
     		'email' => 'required|email|unique:tickets,email',
     		'phone' => 'required|numeric|digits:10'
 		], $messages);
+    }
+
+    /**
+     * displays the register visitor page if first answer is right else displays NOT Allowed page
+     * @param  Request $request 
+     * @return view   
+     */
+    public function registerVisitor(Request $request)
+    {
+    	$actual_answer = Question::findOrFail($request->question)->right_option;
+
+    	if($request->answer == $actual_answer){
+    		return view('register-visitor', ['slogan' => $request->slogan]);
+    	}
+
+    	return view('wrong-answer');
     }
 }

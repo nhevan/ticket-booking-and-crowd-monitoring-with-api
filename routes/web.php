@@ -19,9 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register-visitor', function () {
-    return view('register-visitor');
-});
+Route::get('/questionnaire', 'QuestionsController@questionnaire');
+
+Route::post('/register-visitor', 'TicketsController@registerVisitor');
+
 Route::post('/generate-ticket', 'TicketsController@generateTicket');
 
 Route::get('/test-pdf', 'TicketsController@generateTicket');
