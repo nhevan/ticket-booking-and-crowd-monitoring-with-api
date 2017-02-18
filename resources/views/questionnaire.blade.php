@@ -12,7 +12,7 @@
 					    <p>What 7th March means to you ?</p>
 					    <div class="radio">
 						  <label>
-						    <input type="radio" name="slogan" value="1">
+						    <input type="radio" name="slogan" value="1" required>
 						    Amar Shahosh
 						  </label>
 						</div>
