@@ -21,10 +21,7 @@ Route::get('/', function () {
 
 Route::get('/questionnaire', 'QuestionsController@questionnaire');
 
-Route::post('/register-visitor', function (Request $request) {
-	dd($request->all());
-    return view('register-visitor');
-});
+Route::post('/register-visitor', 'TicketsController@registerVisitor');
 
 Route::post('/generate-ticket', 'TicketsController@generateTicket');
 
