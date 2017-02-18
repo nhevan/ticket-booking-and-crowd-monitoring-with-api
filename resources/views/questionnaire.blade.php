@@ -9,6 +9,33 @@
                 <div class="panel-body">
                     <form method="POST" action="/register-visitor">
 					    {{ csrf_field() }}
+						<p>{{ $question['question'] }}?</p>
+						<input type="hidden" name="question" value="{{ $question['id'] }}">
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="answer" value="{{ $question['option1'] }}" required>
+						    {{ $question['option1'] }}
+						  </label>
+						</div>
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="answer" value="{{ $question['option2'] }}">
+						    {{ $question['option2'] }}
+						  </label>
+						</div>
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="answer" value="{{ $question['option3'] }}">
+						    {{ $question['option3'] }}
+						  </label>
+						</div>
+					    <div class="radio">
+						  <label>
+						    <input type="radio" name="answer" value="{{ $question['option4'] }}">
+						    {{ $question['option4'] }}
+						  </label>
+						</div>
+						<hr>
 					    <p>What 7th March means to you ?</p>
 					    <div class="radio">
 						  <label>

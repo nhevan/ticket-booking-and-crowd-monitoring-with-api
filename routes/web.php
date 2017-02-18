@@ -19,9 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/questionnaire', function () {
-    return view('questionnaire');
-});
+Route::get('/questionnaire', 'QuestionsController@questionnaire');
 
 Route::post('/register-visitor', function (Request $request) {
 	dd($request->all());
