@@ -92,9 +92,8 @@ class TicketsController extends Controller
      */
     public function registerVisitor(Request $request)
     {
-    	// dd($request->all());
-    	if (!$request->question) {
-    		abort(405, 'Please dont try anything fishy.');
+    	if (!$this->isQuestionFound($request)) {
+    		return redirect('/questionnaire');
     	}
     	$question_id = Crypt::decrypt($request->question);
     	$actual_answer = Question::findOrFail($question_id)->right_option;
@@ -104,5 +103,15 @@ class TicketsController extends Controller
     	}
 
     	return view('wrong-answer');
+    }
+
+    /**
+     * checks if the user actually passed the questionnaire page
+     * @param  Request $request 
+     * @return boolean
+     */
+    protected function isQuestionFound(Request $request)
+    {
+    	return $request->question;
     }
 }
