@@ -46,3 +46,15 @@ $factory->define(App\Ticket::class, function (Faker\Generator $faker) {
         'barcode' => $barcode
     ];
 });
+
+$factory->define(App\Question::class, function (Faker\Generator $faker) {
+    $right_option = $faker->word;
+    return [
+        'question' => $faker->sentence,
+        'option1' => $faker->word,
+        'option2' => $faker->word,
+        'option3' => $right_option,
+        'option4' => $faker->word,
+        'right_option' => $right_option,
+    ];
+});
