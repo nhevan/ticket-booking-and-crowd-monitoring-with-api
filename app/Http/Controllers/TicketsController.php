@@ -46,6 +46,8 @@ class TicketsController extends Controller
 	 */
     public function generateTicket(Request $request)
     {
+    	$this->validateTicketRequest($request);
+
     	$ticket = new Ticket;
 
     	$ticket->name = $request->name;
@@ -60,5 +62,23 @@ class TicketsController extends Controller
     	Mail::to($ticket->email)->queue(new SendTicket($ticket));
 		
     	return view('ticket-sent');
+    }
+
+    /**
+     * checks against the rules of tickets fields and throws appropriate validation errrors with custom messages
+     * @param  Request $request 
+     * @return [type]           [description]
+     */
+    protected function validateTicketRequest(Request $request)
+    {
+    	$messages = [
+		    'email.unique' => 'A ticket has already been registered with this email address.',
+		    'phone.digits' => 'Your mobile number can only be of 10 digits excluding +880'
+		];
+    	return $this->validate($request, [
+    		'name' => 'required',
+    		'email' => 'required|email|unique:tickets,email',
+    		'phone' => 'required|numeric|digits:10'
+		], $messages);
     }
 }
