@@ -77,13 +77,13 @@ class TicketsController extends Controller
     {
     	$messages = [
 		    'email.unique' => 'A ticket has already been registered with this email address.',
-		    'phone.digits' => 'Your mobile number can only be of 10 digits excluding +880.',
+		    'phone.digits' => 'Your mobile number can only be of 11 digits excluding +88.',
 		    'phone.unique' => 'This phone number has already been used to request a ticket.'
 		];
     	return $this->validate($request, [
     		'name' => 'required',
     		'email' => 'required|email|unique:tickets,email',
-    		'phone' => 'required|numeric|digits:10|unique:tickets,phone'
+    		'phone' => 'required|numeric|digits:11|unique:tickets,phone'
 		], $messages);
     }
 
