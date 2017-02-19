@@ -54,7 +54,6 @@ $factory->define(App\Question::class, function (Faker\Generator $faker) {
         'option1' => $faker->word,
         'option2' => $faker->word,
         'option3' => $right_option,
-        'option4' => $faker->word,
         'right_option' => $right_option,
     ];
 });

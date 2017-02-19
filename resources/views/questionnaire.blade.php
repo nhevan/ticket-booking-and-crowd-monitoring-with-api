@@ -9,7 +9,7 @@
                 <div class="panel-body">
                     <form method="GET" action="/register-visitor">
 					    {{ csrf_field() }}
-						<p>{{ $question['question'] }}?</p>
+						<p>{{ $question['question'] }}</p>
 						{{ Form::hidden('question', Crypt::encrypt($question['id']) ) }}
 						<div class="radio">
 						  <label>
@@ -27,12 +27,6 @@
 						  <label>
 						    <input type="radio" name="answer" value="{{ $question['option3'] }}">
 						    {{ $question['option3'] }}
-						  </label>
-						</div>
-					    <div class="radio">
-						  <label>
-						    <input type="radio" name="answer" value="{{ $question['option4'] }}">
-						    {{ $question['option4'] }}
 						  </label>
 						</div>
 						<hr>
