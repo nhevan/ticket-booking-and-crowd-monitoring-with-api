@@ -29,12 +29,6 @@
 						    {{ $question['option3'] }}
 						  </label>
 						</div>
-					    <div class="radio">
-						  <label>
-						    <input type="radio" name="answer" value="{{ $question['option4'] }}">
-						    {{ $question['option4'] }}
-						  </label>
-						</div>
 						<hr>
 					    <p>What 7th March means to you ?</p>
 					    <div class="radio">
