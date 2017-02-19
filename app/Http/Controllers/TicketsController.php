@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ticket;
 use App\Question;
+use GuzzleHttp\Client;
 use App\Mail\SendTicket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -62,7 +63,8 @@ class TicketsController extends Controller
 		$ticket->save();
 
     	Mail::to($ticket->email)->queue(new SendTicket($ticket));
-		
+		$this->sendSMS($ticket->phone);
+
     	return view('ticket-sent');
     }
 
@@ -113,5 +115,19 @@ class TicketsController extends Controller
     protected function isQuestionFound(Request $request)
     {
     	return $request->question;
+    }
+
+    /**
+     * sends a sms to a specific phone number
+     * @param  string $phone contains the phone number without the trailing 0
+     * @return int        status code
+     */
+    protected function sendSMS($phone)
+    {
+    	$client = new Client();
+    	$sms_body = "test sms body";
+		$res = $client->request('POST', 'http://202.51.191.68/bulksms/webrequest/?u_name=flowdl&pass=flowdl321&msisdn=0'.$phone.'&msg_body='.$sms_body.'&msg_in_id=543&msg_option=TEXT');
+		
+		return $res->getStatusCode();
     }
 }

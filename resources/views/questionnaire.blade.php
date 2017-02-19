@@ -30,29 +30,29 @@
 						  </label>
 						</div>
 						<hr>
-					    <p>What 7th March means to you ?</p>
+					    <p>৭ই মার্চ আপনার জন্য কি ?</p>
 					    <div class="radio">
 						  <label>
 						    <input type="radio" name="slogan" value="1" required>
-						    Amar Shahosh
+						    আমার সাহস
 						  </label>
 						</div>
 						<div class="radio">
 						  <label>
 						    <input type="radio" name="slogan" value="2">
-						    Amar Ohongkar
+						    আমার অহঙ্কার
 						  </label>
 						</div>
 						<div class="radio">
 						  <label>
 						    <input type="radio" name="slogan" value="3">
-						    Amar Valobasha
+						    আমার বিশ্বাস
 						  </label>
 						</div>
 					    <div class="radio">
 						  <label>
 						    <input type="radio" name="slogan" value="4">
-						    Amar something else
+						    আমার প্রেরণা
 						  </label>
 						</div>
 						<div class="form-group">
