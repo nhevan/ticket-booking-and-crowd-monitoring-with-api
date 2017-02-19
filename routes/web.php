@@ -1,5 +1,6 @@
 <?php
 
+use App\Ticket;
 use App\Mail\SendTicket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -30,3 +31,7 @@ Route::get('/test-pdf', 'TicketsController@generateTicket');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/test-api', function(){
+	return Ticket::all();
+});

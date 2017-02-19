@@ -13,8 +13,8 @@
 		  	<table style="border: 2px solid #e6e6e6;border-spacing: 0px;width: 100%;">
 			  	<tr>
 				  	<td colspan="2" style="border: 2px solid #e6e6e6;border-spacing: 0px;padding: 12px;line-height: 18px;">
-					  	<img src="{{ URL::asset('images/logo.png') }}" style="width: 30%;float: left;"/>
-					  	<img src="{{ URL::asset('images/tagline.png') }}" style="width: 30%;float: right;margin: 26px;"/>
+					  	<img src="{{ URL::asset('images/logo.png') }}" style="width: 36%;float: left;"/>
+					  	<img src="{{ URL::asset('images/tagline.png') }}" style="width: 30%;float: right;margin: 30px 50px;"/>
 				  	</td>
 				  	<td style="border: 2px solid #e6e6e6;border-spacing: 0px;padding: 0px;line-height: 18px;">
 					  	<table style="border-spacing: 0px;">
@@ -50,15 +50,25 @@
 			<h3 style="text-align: center;margin: 0;">Terms and conditions</h3>
 			<div style="position: relative;">
 				<div>
-					<img style="width: 35%;position: absolute;left: 31%;top: 18px;" src="{{ URL::asset('images/bg_logo.png') }}" alt=""/>
+					<img style="width: 42%;position: absolute;left: 28%;top: 18px;" src="{{ URL::asset('images/bg_logo.png') }}" alt=""/>
 				</div>
-				<div>
+				<div style="font-size: 13px;">
 					<ol type="1">
-						<li>For the sake of scanner reading, Please print in laser.</li>
-						<li>This event is free for all. Registration is a prerequisite and this ticker must be presented every time when entering the venue during the event.</li>
-						<li>Gates open at 1:30pm</li>
-						<li>Children below the age of 12 (twelve) will not be allowed entry at the event.</li>
-						<li>No food or drink maybe brought in from outside. Food will be available at a reasonable price. Water will also be available.</li>
+						<li>For the sake of scanner reading, please print and bring the ticket to the event.</li>
+						<li>This event is free for all. Registration is a prerequisite and this pass must be presented every time when entering the venue during the event</li>
+						<li>Gates will open at 1:30 pm</li>
+						<li>Children below the age of 12 will not be allowed entry at the event.</li>
+						<li>No food or drink may be brought in from outside. Food will be available at a reasonable price. Water will also be available.</li>
+						<li>No food or any drink (other than bottled water bought at the venue) will be allowed inside the stadium.</li>
+						<li>Entry is limited and are on first come, first served basis. The organizers reserve the right to move and provide an alternative location for the pass holder.</li>
+						<li>The organizers reserve the right to refuse entry or to remove the premises, people or persons deemed as a security threat and an element of disturbance, or for any other reasons deemed appropriate, at their discretion.</li>
+						<li>The organizers reserve the right to conduct security searches from time to time and reserve the right to confiscate any item which may cause danger or disruption to other members of the audience.</li>
+						<li>CCTV and film cameras will be present at the venue. Attending the event signifies the pass holders consent to the filming and sound recording of themselves as members of the audiences with no obligations of any kind of the organizers part.</li>
+						<li>The organizers will take no responsibilities for loss or theft of any person’s belongings or any loss, injury and damage to the holder of this pass.</li>
+						<li>No smoking, alcohol or drugs of any type is allowed inside the event.</li>
+						<li>The use of any video and sound recording is prohibited. The organizers reserve the right to confiscate such items.</li>
+						<li>Audience should refrain from using mobile phones during sessions and phones must be kept on silent mode.</li>
+						<li>No car parking is available.</li>
 					</ol>
 				</div>
 			</div>
