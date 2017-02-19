@@ -14,7 +14,16 @@
 			  	<tr>
 				  	<td colspan="2" style="border: 2px solid #e6e6e6;border-spacing: 0px;padding: 12px;line-height: 18px;">
 					  	<img src="{{ URL::asset('images/logo.png') }}" style="width: 36%;float: left;"/>
-					  	<img src="{{ URL::asset('images/tagline.png') }}" style="width: 30%;float: right;margin: 30px 50px;"/>
+					  	@if ($ticket['slogan'] == 1)
+						    <img src="{{ URL::asset('images/tagline1.png') }}" style="width: 30%;float: right;margin: 30px 50px;"/>
+						@elseif ($ticket['slogan'] == 2)
+						    <img src="{{ URL::asset('images/tagline2.jpg') }}" style="width: 50%;float: right;margin-right: 15px;"/>
+						@elseif ($ticket['slogan'] == 3)
+						    <img src="{{ URL::asset('images/tagline3.png') }}" style="width: 50%;float: right;margin-right: 15px;"/>
+						@else
+						    <img src="{{ URL::asset('images/tagline4.png') }}" style="width: 50%;float: right;margin-right: 15px;"/>
+						@endif
+					  	
 				  	</td>
 				  	<td style="border: 2px solid #e6e6e6;border-spacing: 0px;padding: 0px;line-height: 18px;">
 					  	<table style="border-spacing: 0px;">
