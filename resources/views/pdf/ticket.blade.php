@@ -54,7 +54,7 @@
 	  	</div>
 	  	<div>
 			<h3 style="text-align: center;margin: 5px 0px 5px;">Artist</h3>
-			<p style="margin: 0;text-align: center;">SHUNNO - LALON - WARFAZE - ARBOVIRUS - SHIRONAMHIN - NEMESIS - CRYPTIC FATE</p>
+			<p style="margin: 0;text-align: center;">SHUNNO - CHIRKUT - LALON - WARFAZE - ARBOVIRUS - SHIRONAMHIN - NEMESIS - CRYPTIC FATE</p>
 			<p style="margin-bottom: 3px;"><b>**The Performance schedule is subject to change without prior notification.</b></p>
 			<h3 style="text-align: center;margin: 0;">Terms and conditions</h3>
 			<div style="position: relative;">
