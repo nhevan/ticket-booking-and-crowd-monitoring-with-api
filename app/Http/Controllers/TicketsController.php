@@ -7,6 +7,7 @@ use App\Question;
 use GuzzleHttp\Client;
 use App\Mail\SendTicket;
 use Illuminate\Http\Request;
+use App\Jobs\SendTicketEmail;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Crypt;
@@ -63,7 +64,7 @@ class TicketsController extends Controller
 		$ticket->save();
 
     	Mail::to($ticket->email)->queue(new SendTicket($ticket));
-		// $this->sendSMS($ticket->phone);
+		$this->sendSMS($ticket->phone);
 
     	return view('ticket-sent');
     }
