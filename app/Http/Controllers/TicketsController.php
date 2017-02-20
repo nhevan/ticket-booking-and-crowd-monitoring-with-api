@@ -63,7 +63,7 @@ class TicketsController extends Controller
 
 		$ticket->save();
 
-    	Mail::to($ticket->email)->queue(new SendTicket($ticket));
+    	dispatch(new SendTicketEmail($ticket));
 		$this->sendSMS($ticket->phone);
 
     	return view('ticket-sent');
