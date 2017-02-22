@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="panel panel-default">
-        <div class="panel-heading text-center"><h3>Enter your details</h3></div>
         <div class="panel-body">
             <form method="POST" action="/generate-ticket">
 			    {{ csrf_field() }}

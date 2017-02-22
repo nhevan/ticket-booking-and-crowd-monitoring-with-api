@@ -22,8 +22,8 @@
 </head>
 <body>
     <div id="app">
-        <div class="container-fluid">
-            <div class="row" style="max-height: 80%">
+        <div id="main-container" class="container-fluid">
+            <div class="row" style="max-height: 80%;">
                 <div class="col-md-4 col-md-offset-1 col-sm-6 col-sm-offset-3">
                     <img src="{{ URL::asset('images/logo.png') }}" style="width: 100%;margin-bottom: 50px;"/>
                 </div>
@@ -46,6 +46,7 @@
         body{
             background-color: white;
             color: black;
+            overflow-x: hidden;
         }
         #app > .container-fluid{
             padding-top: 30px;
@@ -58,9 +59,10 @@
             bottom: 0;
             left: 0;
         }
-        .panel-body{
+        .panel{
             padding: 15px;
             box-shadow: 0px 1px 1em grey;
+            border: 1px solid #878787;
         }
         .btn {
             background: #000;
