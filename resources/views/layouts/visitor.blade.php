@@ -34,7 +34,7 @@
             <div id="footer" class="row">
                 <div class="col-md-12" style="position: relative;padding: 0;">
                     <img src="{{ URL::asset('images/footer_image.png') }}" style="width: 100%;"/>
-                    <a href="http://flowdigitalmedia.com">
+                    <a id="powered-by" target="_blank" href="http://flowdigitalmedia.com">
                         <img src="{{ URL::asset('images/flow_logo.png') }}" style="position: absolute;right: 20px;bottom: 10px;"/>
                     </a>
                 </div>
@@ -60,11 +60,13 @@
             right: 0;
             bottom: 0;
             left: 0;
+            z-index: 1;
         }
         .panel{
             padding: 15px;
             box-shadow: 0px 10px 30px 0px rgba(211, 215, 221, 1);
             border: 1px solid #878787;
+            max-width: 650px;
         }
         .btn {
             background: #000;
@@ -88,9 +90,17 @@
             border: 1px solid red;
             min-height: 20px;
         }
+        #yielded_content{
+            z-index: 9999;
+        }
         @media (max-width: 992px) {
             #yielded_content{
                 margin-bottom: 35%;
+            }
+        }
+        @media (max-width: 768px) {
+            #powered-by img{
+                width: 50px;
             }
         }
     </style>
