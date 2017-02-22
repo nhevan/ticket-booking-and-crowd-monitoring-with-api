@@ -34,7 +34,9 @@
             <div id="footer" class="row">
                 <div class="col-md-12" style="position: relative;padding: 0;">
                     <img src="{{ URL::asset('images/footer_image.png') }}" style="width: 100%;"/>
-                    <a href="http://flowdigitalmedia.com"><img src="{{ URL::asset('images/flow_logo.png') }}" style="position: absolute;right: 17px;bottom: 8px;"/></a>
+                    <a href="http://flowdigitalmedia.com">
+                        <img src="{{ URL::asset('images/flow_logo.png') }}" style="position: absolute;right: 20px;bottom: 10px;"/>
+                    </a>
                 </div>
             </div>
         </div>
@@ -61,7 +63,7 @@
         }
         .panel{
             padding: 15px;
-            box-shadow: 0px 1px 1em grey;
+            box-shadow: 0px 10px 30px 0px rgba(211, 215, 221, 1);
             border: 1px solid #878787;
         }
         .btn {
