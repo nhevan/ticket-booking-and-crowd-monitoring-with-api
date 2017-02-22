@@ -126,7 +126,7 @@ class TicketsController extends Controller
     protected function sendSMS($phone)
     {
     	$client = new Client();
-    	$sms_body = "test sms body";
+    	$sms_body = "Thank you for registering for Joy Bangla Concert on 7 March 2017. We hope you enjoy this event celebrating Love & Unity. Joy Bangla!";
 		$res = $client->request('POST', 'http://202.51.191.68/bulksms/webrequest/?u_name=flowdl&pass=flowdl321&msisdn=0'.$phone.'&msg_body='.$sms_body.'&msg_in_id=543&msg_option=TEXT');
 		
 		return $res->getStatusCode();
