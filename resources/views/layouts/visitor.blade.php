@@ -43,6 +43,10 @@
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     <style>
+        body{
+            background-color: white;
+            color: black;
+        }
         #app > .container-fluid{
             padding-top: 30px;
             min-height: 100vh;
@@ -54,7 +58,11 @@
             bottom: 0;
             left: 0;
         }
-        .custom-btn {
+        .panel-body{
+            padding: 15px;
+            box-shadow: 0px 1px 1em grey;
+        }
+        .btn {
             background: #000;
             border: 0;
             padding: 8px;
