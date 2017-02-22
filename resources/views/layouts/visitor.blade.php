@@ -67,6 +67,7 @@
             box-shadow: 0px 10px 30px 0px rgba(211, 215, 221, 1);
             border: 1px solid #878787;
             max-width: 650px;
+            margin: 0 auto;
         }
         .btn {
             background: #000;
