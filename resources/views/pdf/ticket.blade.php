@@ -59,26 +59,29 @@
 			<h3 style="text-align: center;margin: 0;">Terms and conditions</h3>
 			<div style="position: relative;">
 				<div>
-					<img style="width: 42%;position: absolute;left: 28%;top: 18px;" src="{{ URL::asset('images/bg_logo.png') }}" alt=""/>
+					<img style="width: 42%;position: absolute;left: 28%;top: 18px;opacity: 0.7;" src="{{ URL::asset('images/bg_logo.png') }}" alt=""/>
 				</div>
-				<div style="font-size: 13px;">
+				<div style="font-size: 11.5px;width: 86%;">
 					<ol type="1">
-						<li>For the sake of scanner reading, please print and bring the ticket to the event.</li>
-						<li>This event is free for all. Registration is a prerequisite and this pass must be presented every time when entering the venue during the event</li>
+						<li>For the sake of scanner reading, please print and bring the ticket to the venue.</li>
+						<li>This event is free for all. Registration is a prerequisite and this pass must be presented every time when entering the venue during the event.</li>
 						<li>Gates will open at 1:30 pm</li>
 						<li>Children below the age of 12 will not be allowed entry at the event.</li>
-						<li>No food or drink may be brought in from outside. Food will be available at a reasonable price. Water will also be available.</li>
-						<li>No food or any drink (other than bottled water bought at the venue) will be allowed inside the stadium.</li>
-						<li>Entry is limited and are on first come, first served basis. The organizers reserve the right to move and provide an alternative location for the pass holder.</li>
-						<li>The organizers reserve the right to refuse entry or to remove the premises, people or persons deemed as a security threat and an element of disturbance, or for any other reasons deemed appropriate, at their discretion.</li>
-						<li>The organizers reserve the right to conduct security searches from time to time and reserve the right to confiscate any item which may cause danger or disruption to other members of the audience.</li>
-						<li>CCTV and film cameras will be present at the venue. Attending the event signifies the pass holders consent to the filming and sound recording of themselves as members of the audiences with no obligations of any kind of the organizers part.</li>
-						<li>The organizers will take no responsibilities for loss or theft of any person’s belongings or any loss, injury and damage to the holder of this pass.</li>
-						<li>No smoking, alcohol or drugs of any type is allowed inside the event.</li>
-						<li>The use of any video and sound recording is prohibited. The organizers reserve the right to confiscate such items.</li>
-						<li>Audience should refrain from using mobile phones during sessions and phones must be kept on silent mode.</li>
-						<li>No car parking is available.</li>
+						<li>No food or drink may be brought from outside. Food will be available inside the venue at reasonable prices. Water will also be available.</li>
+						<li>No food or drink (except bottled water brought at the venue) will be allowed anywhere else other than the food court.</li>
+						<li>Entry is limited and will be on a &quot;first come, first serve&quot; basis. Organizers reserve the right to shift the pass-holder to alternative locations.</li>
+						<li>Organizers reserve the right to refuse entry to or remove from the premises, person or people deemed as security threats, or elements of disturbance, or for any other reasons deemed inappropriate, at their discretion.</li>
+						<li>Organizers reserve the right to conduct security search from time to time and confiscate any item that may cause danger to other members of the audience or disrupt the event.</li>
+						<li>CCTV and film cameras will be operated at the venue. Attending the event signifies that the pass-holder has given consent to the filming and sound recording of themselves as a member of the audience with no obligations of any kind on the part of the organizers.</li>
+						<li>Organizers will take no responsibilities for loss or theft of any personal belongings or any other losses, injuries and damages to the holder of this pass.</li>
+						<li>Smoking, drinking alcohol or taking drugs will NOT be allowed at the event.</li>
+						<li>Any kind of video or sound recording is prohibited. Organizers reserve the right to confiscate such devices or items.</li>
+						<li>Audience should refrain from using mobile phones during sessions and all phones must be kept silent.</li>
+						<li>There will be no car parking facilities at the venue.</li>
 					</ol>
+				</div>
+				<div>
+					<img style="width: 14%;position: absolute;right: 0px;top: 22%;" src="images/yb_qr.png" alt=""/>
 				</div>
 			</div>
 		</div>
