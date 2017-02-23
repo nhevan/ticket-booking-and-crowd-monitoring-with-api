@@ -97,6 +97,7 @@
 		        margin-left: auto;
 		        margin-right: auto;
 		        position: relative;
+				font-family: serif;
 		    }
 	    </style>
 	</body>
