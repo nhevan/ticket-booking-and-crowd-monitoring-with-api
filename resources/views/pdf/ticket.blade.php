@@ -61,7 +61,7 @@
 				<div>
 					<img style="width: 42%;position: absolute;left: 28%;top: 18px;opacity: 0.7;" src="{{ URL::asset('images/bg_logo.png') }}" alt=""/>
 				</div>
-				<div style="font-size: 11.5px;width: 86%;">
+				<div style="font-size: 11px;width: 86%;">
 					<ol type="1">
 						<li>For the sake of scanner reading, please print and bring the ticket to the venue.</li>
 						<li>This event is free for all. Registration is a prerequisite and this pass must be presented every time when entering the venue during the event.</li>
@@ -81,7 +81,7 @@
 					</ol>
 				</div>
 				<div>
-					<img style="width: 14%;position: absolute;right: 0px;top: 22%;" src="images/yb_qr.png" alt=""/>
+					<img style="width: 14%;position: absolute;right: 0px;top: 22%;" src="{{ URL::asset('images/yb_qr.png') }}" alt=""/>
 				</div>
 			</div>
 		</div>
