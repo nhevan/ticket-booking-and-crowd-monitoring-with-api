@@ -8,7 +8,7 @@
                 <div class="panel-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6 text-center">
+                            <div class="col-md-6">
                                 <p><b>Total number of tickets generated :</b> {{ $total_ticket_count }}</p>
                                 <p><b>Total number of male :</b> {{ $total_male }}</p>
                                 <p><b>Total number of female :</b> {{ $total_female }}</p>
