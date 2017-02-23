@@ -35,7 +35,7 @@
                 <div class="col-md-12" style="position: relative;padding: 0;">
                     <img src="{{ URL::asset('images/footer_image.png') }}" style="width: 100%;"/>
                     <a id="powered-by" target="_blank" href="http://flowdigitalmedia.com">
-                        <img src="{{ URL::asset('images/flow_logo.png') }}" style="position: absolute;right: 20px;bottom: 10px;"/>
+                        <img src="{{ URL::asset('images/flow_logo.png') }}" style="position: absolute;right: 50px;bottom: 10px;max-width:70px;"/>
                     </a>
                 </div>
             </div>
