@@ -57,6 +57,9 @@ class TicketsController extends Controller
     	$ticket->name = $request->name;
     	$ticket->phone = $request->phone;
     	$ticket->email = $request->email;
+        $ticket->nidorpassport = $request->nidorpassport;
+        $ticket->dob = $request->dob;
+        $ticket->gender = $request->gender;
     	$ticket->slogan = Crypt::decrypt($request->slogan);
     	$ticket->reg_id = $this->getNextRegId();
     	$ticket->barcode = $this->getBarCode($ticket->reg_id);
@@ -79,12 +82,18 @@ class TicketsController extends Controller
     	$messages = [
 		    'email.unique' => 'A ticket has already been registered with this email address.',
 		    'phone.digits' => 'Your mobile number can only be of 11 digits excluding +88.',
-		    'phone.unique' => 'This phone number has already been used to request a ticket.'
+		    'phone.unique' => 'This phone number has already been used to request a ticket.',
+            'nidorpassport.required' => 'Please provide your NID/Passport number.',
+            'dob.date' => 'Please enter your date of birth in valid format.',
+            'dob.before' => 'You must be 12 years or more to register for this concert'
 		];
     	return $this->validate($request, [
     		'name' => 'required',
     		'email' => 'required|email|unique:tickets,email',
-    		'phone' => 'required|numeric|digits:11|unique:tickets,phone'
+    		'phone' => 'required|numeric|digits:11|unique:tickets,phone',
+            'dob' => 'required|date|before:-12 years',
+            'gender' => 'required',
+            'nidorpassport' => 'required'
 		], $messages);
     }
 

@@ -18,7 +18,7 @@
 				    		<div class="input-group-addon">
 						        <span>DOB</span>
 						    </div>
-						    <input name="dob" class="form-control" placeholder="dd-mm-yyyy">
+						    <input name="dob" class="form-control" placeholder="yyyy-mm-dd" value="{{ old('dob') }}">
 						</div>
 				    	{{-- <input style="width: 100%;" type="text" class="form-control" name='dob' placeholder="Enter your date of birth" value="{{ old('dob') }}" required> --}}
 				    </div>
@@ -36,7 +36,7 @@
 			    	</div>
 			    </div>
 			    <div class="form-group">
-			    	<input type="text" class="form-control" name='nid' placeholder="Enter your NID/Passport number" value="{{ old('nid') }}" required>
+			    	<input type="text" class="form-control" name='nidorpassport' placeholder="Enter your NID/Passport number" value="{{ old('nidorpassport') }}" required>
 			    </div>
 			    <div class="form-group">
 			    	<button type="submit" class="btn btn-primary center-block">Request Ticket</button>
