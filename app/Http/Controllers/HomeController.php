@@ -26,9 +26,10 @@ class HomeController extends Controller
     public function index()
     {
         $tickets = Ticket::paginate(15);
-        // dd($tickets);
+        $total_ticket_count = Ticket::count();
+        $is_registration_allowed = Setting::where('setting', 'is_registration_allowed')->first()->value;
 
-        return view('dashboard', compact('tickets'));
+        return view('dashboard', compact('tickets', 'is_registration_allowed', 'total_ticket_count'));
     }
 
     /**

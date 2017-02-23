@@ -8,8 +8,18 @@
                 <div class="panel-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6 text-center"><p><b>Total number of tickets generated :</b> 6462</p></div>
-                            <div class="col-md-6"><p>Registration process is currently <b>Running</b></p></div>
+                            <div class="col-md-6 text-center"><p><b>Total number of tickets generated :</b> {{ $total_ticket_count }}</p></div>
+                            <div class="col-md-6">
+                                <p>Registration process is currently 
+                                    <b>
+                                        @if($is_registration_allowed == 0)
+                                            <span style="color: #d9534f;">ON PAUSE</span>
+                                        @else
+                                            <span style="color: #5cb85c;">RUNNING</span>
+                                        @endif
+                                    </b>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

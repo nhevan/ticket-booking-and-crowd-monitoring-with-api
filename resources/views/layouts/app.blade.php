@@ -72,7 +72,7 @@
                                     </li>
                                     <li>
                                         <a href="/swap-reg-status">
-                                            Turn off Registration
+                                            Change Registration Status
                                         </a>
                                     </li>
                                 </ul>
