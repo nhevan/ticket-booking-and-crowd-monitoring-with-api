@@ -8,9 +8,13 @@
                 <div class="panel-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6 text-center"><p><b>Total number of tickets generated :</b> {{ $total_ticket_count }}</p></div>
+                            <div class="col-md-6 text-center">
+                                <p><b>Total number of tickets generated :</b> {{ $total_ticket_count }}</p>
+                                <p><b>Total number of male :</b> {{ $total_male }}</p>
+                                <p><b>Total number of female :</b> {{ $total_female }}</p>
+                            </div>
                             <div class="col-md-6">
-                                <p>Registration process is currently 
+                                <p style="margin-top: 30px;text-align: center;">Registration process is currently 
                                     <b>
                                         @if($is_registration_allowed == 0)
                                             <span style="color: #d9534f;">ON PAUSE</span>

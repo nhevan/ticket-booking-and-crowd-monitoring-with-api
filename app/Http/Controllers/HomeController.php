@@ -27,9 +27,11 @@ class HomeController extends Controller
     {
         $tickets = Ticket::paginate(15);
         $total_ticket_count = Ticket::count();
+        $total_male =Ticket::where('gender','m')->count();
+        $total_female =Ticket::where('gender','f')->count();
         $is_registration_allowed = Setting::where('setting', 'is_registration_allowed')->first()->value;
 
-        return view('dashboard', compact('tickets', 'is_registration_allowed', 'total_ticket_count'));
+        return view('dashboard', compact('tickets', 'is_registration_allowed', 'total_ticket_count','total_male','total_female'));
     }
 
     /**
