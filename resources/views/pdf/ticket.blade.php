@@ -41,12 +41,12 @@
 				  	</td>
 			  	</tr>
 			  	<tr>
-				  	<td style="width: 25%;border: 2px solid #e6e6e6;border-spacing: 0px;padding: 12px;line-height: 18px;"><span style="font-size: 20px;"><b>Gate - 13, 14, 15</b></span></td>
+				  	<td style="width: 25%;border: 2px solid #e6e6e6;border-spacing: 0px;padding: 12px;line-height: 18px;"><span style="font-size: 17px;"><b>Gate - 13, 14, 15</b></span></td>
 				  	<td style="width: 50%;border: 2px solid #e6e6e6;border-spacing: 0px;padding: 12px;line-height: 18px;"><span>VENUE : ARMY STADIUM,</span><br> <span style="display: block;margin-left: 67px;font-size: 14px;">Dhaka, Bangladesh</span></td>
 				  	<td style="width: 25%;border: 2px solid #e6e6e6;border-spacing: 0px;padding: 12px;line-height: 18px;">Reg ID : {{ $ticket['reg_id'] }}</td>
 			  	</tr>
 			  	<tr>
-				  	<td style="width: 25%;border: 2px solid #e6e6e6;border-spacing: 0px;padding: 12px;line-height: 18px;">Helpline : 01556888777 <br><span style="font-size: 14px;display: block;margin-left: 35px;">(10am - 8pm)</span></td>
+				  	<td style="width: 25%;border: 2px solid #e6e6e6;border-spacing: 0px;padding: 12px;line-height: 18px;">Helpline : 01763953323 <br><span style="display: block;margin-left: 67px;">01777701337</span><span style="font-size: 14px;display: block;margin-left: 35px;">(10am - 8pm)</span></td>
 				  	<td style="width: 50%;border: 2px solid #e6e6e6;border-spacing: 0px;padding: 12px;line-height: 18px;"><span>DATE : 7 March 2017</span><br> TIME : <span style="font-size: 14px;">Gates will open at 1:30 PM</span></td>
 				  	<td style="width: 25%;border: 2px solid #e6e6e6;border-spacing: 0px;padding: 12px;line-height: 18px;"><span style="font-size: 25px;text-align: center;display: block;"><b>Free Ticket</b></span></td>
 			  	</tr>
@@ -61,7 +61,7 @@
 				<div>
 					<img style="width: 42%;position: absolute;left: 28%;top: 18px;opacity: 0.7;" src="{{ URL::asset('images/bg_logo.png') }}" alt=""/>
 				</div>
-				<div style="font-size: 11px;width: 86%;">
+				<div style="font-size: 10px;width: 86%;">
 					<ol type="1">
 						<li>For the sake of scanner reading, please print and bring the ticket to the venue.</li>
 						<li>This event is free for all. Registration is a prerequisite and this pass must be presented every time when entering the venue during the event.</li>
