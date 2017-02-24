@@ -113,6 +113,7 @@
         @media (max-width: 768px) {
             #powered-by img{
                 width: 50px;
+                right: 20px !important;
             }
         }
     </style>
