@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 
     <!-- Scripts -->
     <script>
@@ -44,6 +45,12 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $( function() {
+          $( "#datepicker" ).datepicker();
+        } );
+    </script>
     <style>
         body{
             background-color: white;

@@ -18,7 +18,7 @@
 				    		<div class="input-group-addon">
 						        <span>DOB</span>
 						    </div>
-						    <input name="dob" class="form-control" placeholder="yyyy-mm-dd" value="{{ old('dob') }}">
+						    <input name="dob" class="form-control" id="datepicker" placeholder="mm/dd/yyyy" value="{{ old('dob') }}">
 						</div>
 				    	{{-- <input style="width: 100%;" type="text" class="form-control" name='dob' placeholder="Enter your date of birth" value="{{ old('dob') }}" required> --}}
 				    </div>
