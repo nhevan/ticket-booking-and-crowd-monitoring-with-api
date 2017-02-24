@@ -14,11 +14,11 @@
 			    </div>
 			    <div class="form-inline">
 			    	<div class="form-group" style="width: 50%;">
-			    		<div style="width: 100%;" class="input-group date" data-provide="datepicker" data-date-format="dd-mm-yyyy" data-date-autoclose="true">
+			    		<div style="width: 100%;" class="input-group date" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-autoclose="true">
 				    		<div class="input-group-addon">
 						        <span>DOB</span>
 						    </div>
-						    <input name="dob" class="form-control" id="datepicker" placeholder="dd-mm-yyyy" value="{{ old('dob') }}">
+						    <input name="dob" class="form-control" id="datepicker" placeholder="yyyy-mm-dd" value="{{ old('dob') }}">
 						</div>
 				    	{{-- <input style="width: 100%;" type="text" class="form-control" name='dob' placeholder="Enter your date of birth" value="{{ old('dob') }}" required> --}}
 				    </div>
