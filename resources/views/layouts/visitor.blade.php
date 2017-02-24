@@ -49,7 +49,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script>
         $( function() {
-          $( "#datepicker" ).datepicker();
+          $( "#datepicker" ).datepicker({ dateFormat: 'yyyy-mm-dd' });
         } );
     </script>
     <style>
@@ -101,6 +101,9 @@
         }
         #yielded_content{
             z-index: 9999;
+        }
+        .ui-widget.ui-widget-content {
+            z-index: 999999 !important;
         }
         @media (max-width: 992px) {
             #yielded_content{
