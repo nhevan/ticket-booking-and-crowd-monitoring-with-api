@@ -52,7 +52,8 @@
             $( "#datepicker" ).datepicker({ 
                 dateFormat: 'yy-mm-dd',
                 changeMonth: true,
-                changeYear: true 
+                changeYear: true,
+                yearRange: "1940:+nn" 
             });
         } );
     </script>
