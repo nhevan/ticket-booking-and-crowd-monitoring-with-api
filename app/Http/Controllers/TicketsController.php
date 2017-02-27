@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ticket;
+use App\Setting;
 use App\Question;
 use GuzzleHttp\Client;
 use App\Mail\SendTicket;
@@ -50,6 +51,10 @@ class TicketsController extends Controller
 	 */
     public function generateTicket(Request $request)
     {
+        $is_registration_allowed = Setting::where('setting', 'is_registration_allowed')->first()->value;
+        if (!$is_registration_allowed) {
+            return view('registration-on-pause');
+        }
     	$this->validateTicketRequest($request);
 
     	$ticket = new Ticket;
@@ -104,6 +109,10 @@ class TicketsController extends Controller
      */
     public function registerVisitor(Request $request)
     {
+        $is_registration_allowed = Setting::where('setting', 'is_registration_allowed')->first()->value;
+        if (!$is_registration_allowed) {
+            return view('registration-on-pause');
+        }
     	if (!$this->isQuestionFound($request)) {
     		return redirect('/questionnaire');
     	}
