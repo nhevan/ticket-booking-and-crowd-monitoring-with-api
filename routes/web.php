@@ -39,6 +39,6 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('/home', 'HomeController@index');
 Route::get('/swap-reg-status', 'HomeController@swapRegistrationStatus');
 
-Route::get('/test-api', function(){
-	return Ticket::all('id', 'reg_id');
+Route::get('/all-ticket-codes', function(){
+	return Ticket::all('id', 'reg_id','name','phone','email');
 });
