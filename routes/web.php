@@ -24,7 +24,7 @@ Route::get('/register-visitor', 'TicketsController@registerVisitor');
 
 Route::post('/generate-ticket', 'TicketsController@generateTicket');
 
-Route::get('/test-pdf', 'TicketsController@generateTicket');
+//Route::get('/test-pdf', 'TicketsController@generateTicket');
 
 // Auth::routes();
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
