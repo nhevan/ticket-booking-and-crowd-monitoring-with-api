@@ -58,11 +58,7 @@ class TicketsController extends Controller
     {
         $allow_female_only = Setting::where('setting', 'allow_female_only')->first()->value;
         if($allow_female_only == 1){
-            $ticket->gender = 'f';
             $request->gender = 'f';
-        }
-        else{           
-            $ticket->gender = $request->gender;
         }
 
     	$this->validateTicketRequest($request);
@@ -74,6 +70,7 @@ class TicketsController extends Controller
     	$ticket->email = $request->email;
         $ticket->nidorpassport = $request->nidorpassport;
         $ticket->dob = $request->dob;
+        $ticket->gender = $request->gender;
     	$ticket->slogan = Crypt::decrypt($request->slogan);
     	$ticket->reg_id = $this->getNextRegId();
     	$ticket->barcode = $this->getBarCode($ticket->reg_id);
