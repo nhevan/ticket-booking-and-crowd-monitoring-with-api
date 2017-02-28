@@ -3,7 +3,7 @@
 @section('content')
     <div class="panel panel-default">
         <div class="panel-body">
-            <form method="POST" action="/generate-ticket">
+            <form  id="register-form" method="POST" action="/generate-ticket">
 			    {{ csrf_field() }}
 			    {{ Form::hidden('slogan', Crypt::encrypt($slogan) ) }}
 			    <div class="form-group">
@@ -53,4 +53,17 @@
 			@endif
         </div>
     </div>
+@endsection
+
+@section('scripts')
+	<script>
+        var register = document.getElementById('register-form'); // form has to have ID: <form id="formID">
+        register.noValidate = true;
+        register.addEventListener('submit', function(event) { // listen for register submitting
+            if (!event.target.checkValidity()) {
+                event.preventDefault(); // dismiss the default functionality
+                alert('You must provide all the fields before proceeding.'); // error message
+            }
+        }, false);
+    </script>
 @endsection

@@ -67,6 +67,7 @@
             });
         } );
     </script>
+    @yield('scripts')
     <style>
         body{
             background-color: white;
@@ -132,5 +133,6 @@
             }
         }
     </style>
+
 </body>
 </html>
