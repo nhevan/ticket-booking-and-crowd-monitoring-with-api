@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tickets = Ticket::paginate(15);
+        $tickets = Ticket::orderBy('created_at', 'desc')->paginate(15);
         $total_ticket_count = Ticket::count();
         $total_male =Ticket::where('gender','m')->count();
         $total_female =Ticket::where('gender','f')->count();
