@@ -67,6 +67,7 @@
                         <li>This event is free for all. Registration is a prerequisite and this pass must be presented every time when entering the venue during the event.</li>
                         <li>Gates will open at 1:30 pm</li>
                         <li>Children below the age of 12 will not be allowed entry at the event.</li>
+                        <li>Any bag or purse is strictly prohibited inside the venue.</li>
                         <li>No food or drink may be brought from outside. Food will be available inside the venue at reasonable prices. Water will also be available.</li>
                         <li>No food or drink (except bottled water brought at the venue) will be allowed anywhere else other than the food court.</li>
                         <li>Entry is limited and will be on a &quot;first come, first serve&quot; basis. Organizers reserve the right to shift the pass-holder to alternative locations.</li>
