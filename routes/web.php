@@ -17,14 +17,12 @@ use Illuminate\Support\Facades\Mail;
 */
 
 Route::get('/', 'QuestionsController@questionnaire');
-
 Route::get('/questionnaire', 'QuestionsController@questionnaire');
-
 Route::get('/register-visitor', 'TicketsController@registerVisitor');
-
 Route::post('/generate-ticket', 'TicketsController@generateTicket');
 
-//Route::get('/test-pdf', 'TicketsController@generateTicket');
+Route::get('/resend-ticket/{ticket}', 'TicketsController@resendTicket')->name('ticket.resend');
+Route::get('/download-ticket/{ticket}', 'TicketsController@downloadTicket')->name('ticket.download');
 
 // Auth::routes();
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

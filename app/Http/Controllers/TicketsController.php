@@ -146,4 +146,30 @@ class TicketsController extends Controller
 		
 		return $res->getStatusCode();
     }
+
+    /**
+     * Resend the ticket to the users email address
+     * @param  Ticket $ticket [description]
+     * @return [type]         [description]
+     */
+    public function resendTicket(Ticket $ticket)
+    {
+        Mail::to($ticket->email)->send(new SendTicket($ticket));
+
+        return back();
+    }
+
+    /**
+     * Downloads the generated pdf 
+     * @param  Ticket $ticket [description]
+     * @return [type]         [description]
+     */
+    public function downloadTicket(Ticket $ticket)
+    {
+        $pdf = App::make('snappy.pdf.wrapper');
+        $pdf->loadView('pdf.ticket', ['ticket' => $ticket]);
+        $pdf->setPaper('a4')->setOption('margin-bottom', '0mm');
+
+        return $pdf->download($ticket->reg_id.'-eTicket.pdf');
+    }
 }
