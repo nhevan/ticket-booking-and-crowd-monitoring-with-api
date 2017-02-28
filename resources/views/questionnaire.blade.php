@@ -9,19 +9,19 @@
 				{{ Form::hidden('question', Crypt::encrypt($question['id']) ) }}
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="answer" value="{{ $question['option1'] }}" required>
+				    <input type="radio" name="answer" value="{{ Crypt::encrypt($question['option1']) }}" required>
 				    {{ $question['option1'] }}
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="answer" value="{{ $question['option2'] }}">
+				    <input type="radio" name="answer" value="{{ Crypt::encrypt($question['option2']) }}">
 				    {{ $question['option2'] }}
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="answer" value="{{ $question['option3'] }}">
+				    <input type="radio" name="answer" value="{{ Crypt::encrypt($question['option3']) }}">
 				    {{ $question['option3'] }}
 				  </label>
 				</div>
@@ -29,25 +29,25 @@
 			    <p>৭ই মার্চ আপনার জন্য কি ?</p>
 			    <div class="radio">
 				  <label>
-				    <input type="radio" name="slogan" value="1" required>
+				    <input type="radio" name="slogan" value="1" required="required">
 				    আমার সাহস
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="slogan" value="2">
+				    <input type="radio" name="slogan" value="2" required>
 				    আমার অহঙ্কার
 				  </label>
 				</div>
 				<div class="radio">
 				  <label>
-				    <input type="radio" name="slogan" value="3">
+				    <input type="radio" name="slogan" value="3" required>
 				    আমার বিশ্বাস
 				  </label>
 				</div>
 			    <div class="radio">
 				  <label>
-				    <input type="radio" name="slogan" value="4">
+				    <input type="radio" name="slogan" value="4" required>
 				    আমার প্রেরণা
 				  </label>
 				</div>

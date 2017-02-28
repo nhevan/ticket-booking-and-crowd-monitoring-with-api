@@ -116,7 +116,7 @@ class TicketsController extends Controller
     	$question_id = Crypt::decrypt($request->question);
     	$actual_answer = Question::findOrFail($question_id)->right_option;
 
-    	if($request->answer == $actual_answer){
+    	if(Crypt::decrypt($request->answer) == $actual_answer){
     		return view('register-visitor', ['slogan' => $request->slogan]);
     	}
 
