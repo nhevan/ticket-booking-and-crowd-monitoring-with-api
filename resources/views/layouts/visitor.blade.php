@@ -35,8 +35,9 @@
     <div id="app">
         <div id="main-container" class="container-fluid">
             <div class="row" style="max-height: 80%;">
-                <div class="col-md-4 col-md-offset-1 col-sm-6 col-sm-offset-3">
-                    <img src="{{ URL::asset('images/logo.png') }}" style="width: 100%;margin-bottom: 50px;"/>
+                <div class="col-md-4 col-md-offset-1 col-sm-6 col-sm-offset-3 text-center">
+                    <img src="{{ URL::asset('images/logo.png') }}" style="width: 100%;margin-bottom: 10px;"/>
+                    <img src="{{ URL::asset('images/CRI-YB-Logo.png') }}" style="width: 180px;margin-bottom: 50px;"/>
                 </div>
                 <div id="yielded_content" class="col-md-6 col-sm-12" style="">
                     @yield('content')
