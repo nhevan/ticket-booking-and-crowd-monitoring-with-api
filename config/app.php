@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Joy Bangla Concert',
+    'name' => 'Joy Bangla Concert 2017',
 
     /*
     |--------------------------------------------------------------------------
