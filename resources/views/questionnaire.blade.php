@@ -62,13 +62,15 @@
 @section('scripts')
 	<script>
     	var questionnaire = document.getElementById('questionnaire-form'); // form has to have ID: <form id="formID">
-        questionnaire.noValidate = true;
-        questionnaire.addEventListener('submit', function(event) { // listen for questionnaire submitting
-            if (!event.target.checkValidity()) {
-                event.preventDefault(); // dismiss the default functionality
-                alert('Please answer both the questions mentioned on the page before proceeding further.'); // error message
-            }
-        }, false);
-
+        var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 && navigator.userAgent && !navigator.userAgent.match('CriOS');
+        if(isSafari){
+        	questionnaire.noValidate = true;
+        	questionnaire.addEventListener('submit', function(event) { // listen for questionnaire submitting
+	            if (!event.target.checkValidity()) {
+	                event.preventDefault(); // dismiss the default functionality
+	                alert('Please answer both the questions mentioned on the page before proceeding further.'); // error message
+	            }
+	        }, false);
+        }
     </script>
 @endsection

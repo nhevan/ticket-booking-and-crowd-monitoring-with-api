@@ -58,12 +58,15 @@
 @section('scripts')
 	<script>
         var register = document.getElementById('register-form'); // form has to have ID: <form id="formID">
-        register.noValidate = true;
-        register.addEventListener('submit', function(event) { // listen for register submitting
-            if (!event.target.checkValidity()) {
-                event.preventDefault(); // dismiss the default functionality
-                alert('You must provide all the fields before proceeding.'); // error message
-            }
-        }, false);
+        var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 && navigator.userAgent && !navigator.userAgent.match('CriOS');
+        if(isSafari){
+        	register.noValidate = true;
+	        register.addEventListener('submit', function(event) { // listen for register submitting
+	            if (!event.target.checkValidity()) {
+	                event.preventDefault(); // dismiss the default functionality
+	                alert('You must provide all the fields before proceeding.'); // error message
+	            }
+	        }, false);
+	    }
     </script>
 @endsection
