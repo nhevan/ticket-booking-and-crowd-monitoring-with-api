@@ -8,16 +8,17 @@ use Illuminate\Http\Request;
 
 class QuestionsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('check-registration-status');
+    }
+
 	/**
 	 * Displays a random question along with a second fixed question
 	 * @return view
 	 */
     public function questionnaire()
     {
-        $is_registration_allowed = Setting::where('setting', 'is_registration_allowed')->first()->value;
-        if (!$is_registration_allowed) {
-            return view('registration-on-pause');
-        }
     	$question = $this->getRandomQuestion();
 
     	return view('questionnaire', compact('question'));
