@@ -75,6 +75,11 @@
                                             Change Registration Status
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="/swap-female-only-registration">
+                                            Change Female ONLY Registration Status
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         @endif

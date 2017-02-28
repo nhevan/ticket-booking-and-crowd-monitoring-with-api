@@ -23,6 +23,15 @@
                                         @endif
                                     </b>
                                 </p>
+                                <p style="margin-top: 30px;text-align: center;">Registration is running for 
+                                    <b>
+                                        @if($allow_female_only == 1)
+                                            <span style="color: #d9534f;">FEMALE ONLY</span>
+                                        @else
+                                            <span style="color: #5cb85c;">EVERYONE</span>
+                                        @endif
+                                    </b>
+                                </p>
                             </div>
                         </div>
                     </div>

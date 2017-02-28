@@ -22,11 +22,17 @@
 						</div>
 				    	{{-- <input style="width: 100%;" type="text" class="form-control" name='dob' placeholder="Enter your date of birth" value="{{ old('dob') }}" required> --}}
 				    </div>
-				    <div class="form-group" style="padding-left: 10px;">
-				    	<label style="padding-right: 10px;">Gender</label>
-				    	<input type="radio" name="gender" value="m" style="margin-right: 5px" required> Male
-				    	<input type="radio" name="gender" value="f" style="margin-left: 5px; margin-right: 5px;"> Female
-				    </div>
+				    @if ($allow_female_only == 0)
+						<div class="form-group" style="padding-left: 10px;">
+					    	<label style="padding-right: 10px;">Gender</label>
+					    	<input type="radio" name="gender" value="m" style="margin-right: 5px" required> Male
+					    	<input type="radio" name="gender" value="f" style="margin-left: 5px; margin-right: 5px;"> Female
+					    </div>
+					@else
+						<div class="form-group" style="padding-left: 10px;">
+					    	<label style="padding-right: 10px; font-size: 11px; color: #ff0000">Only females can register at the moment. <br/> Gentle men please try later.</label>
+					    </div>
+				    @endif
 			    </div>
 			    <br>
 			    <div class="form-group">

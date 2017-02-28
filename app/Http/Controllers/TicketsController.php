@@ -65,7 +65,13 @@ class TicketsController extends Controller
     	$ticket->email = $request->email;
         $ticket->nidorpassport = $request->nidorpassport;
         $ticket->dob = $request->dob;
-        $ticket->gender = $request->gender;
+
+        $allow_female_only = Setting::where('setting', 'allow_female_only')->first()->value;
+        if($allow_female_only == 1)
+            $ticket->gender = 'f';
+        else           
+            $ticket->gender = $request->gender;
+        
     	$ticket->slogan = Crypt::decrypt($request->slogan);
     	$ticket->reg_id = $this->getNextRegId();
     	$ticket->barcode = $this->getBarCode($ticket->reg_id);
@@ -116,8 +122,10 @@ class TicketsController extends Controller
     	$question_id = Crypt::decrypt($request->question);
     	$actual_answer = Question::findOrFail($question_id)->right_option;
 
+        $allow_female_only = Setting::where('setting', 'allow_female_only')->first()->value;
+
     	if($request->answer == $actual_answer){
-    		return view('register-visitor', ['slogan' => $request->slogan]);
+    		return view('register-visitor', ['slogan' => $request->slogan, 'allow_female_only' => $allow_female_only]);
     	}
 
     	return view('wrong-answer');
