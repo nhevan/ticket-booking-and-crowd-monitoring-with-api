@@ -30,6 +30,7 @@
 					    </div>
 					@else
 						<div class="form-group" style="padding-left: 10px;">
+							{{ Form::hidden('gender', Crypt::encrypt('f') ) }}
 					    	<label style="padding-right: 10px; font-size: 11px; color: #ff0000">Only females can register at the moment. <br/> Gentle men please try later.</label>
 					    </div>
 				    @endif
