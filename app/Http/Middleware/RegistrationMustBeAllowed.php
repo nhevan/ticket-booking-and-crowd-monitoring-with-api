@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Setting;
+use Illuminate\Http\Response;
 
 class RegistrationMustBeAllowed
 {
@@ -21,6 +22,6 @@ class RegistrationMustBeAllowed
             return $next($request);
         }
 
-        abort(420);
+        return new Response(view('registration-on-pause'));
     }
 }
