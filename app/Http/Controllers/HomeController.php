@@ -68,4 +68,13 @@ class HomeController extends Controller
         $setting->value = 1;
         $setting->save();
     }
+
+    /**
+     * displays the page for managing passport/API keys
+     * @return [type] [description]
+     */
+    public function passport()
+    {
+        return view('passport-keys');
+    }
 }
