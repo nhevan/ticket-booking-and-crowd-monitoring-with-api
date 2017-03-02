@@ -1,5 +1,6 @@
 <?php
 
+use App\Ticket;
 use Illuminate\Http\Request;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/tickets', function(){
+	return Ticket::all('id', 'reg_id','name','phone');
+})->middleware('auth:api');
