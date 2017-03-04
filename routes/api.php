@@ -2,6 +2,7 @@
 
 use App\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/tickets', function(){
-	return Ticket::all('id', 'reg_id','name','phone');
-})->middleware('auth:api');
+Route::get('/tickets', 'TicketsCheckerController@fetchAllTickets')->middleware('auth:api');
+
+Route::put('/check-ticket', 'TicketsCheckerController@checkTicket')->middleware('auth:api');
