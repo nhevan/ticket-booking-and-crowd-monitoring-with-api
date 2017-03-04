@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ticket;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TicketsCheckerController extends Controller
@@ -70,9 +71,10 @@ class TicketsCheckerController extends Controller
      */
     protected function _reEntry()
     {
+    	$now = Carbon::now();
         return response()->json([
                 'status_code' => 420,
-                'message' => 'The visitor has already entered the venue through gate '.$this->ticket->gate_used.' on '.$this->ticket->updated_at
+                'message' => 'The visitor has already entered the venue through gate '.$this->ticket->gate_used.' approximately '.$this->ticket->updated_at->diffForHumans($now, true).' ago.'
             ])->header('Status', 420);
     }
 
