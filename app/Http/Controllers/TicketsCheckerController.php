@@ -28,20 +28,20 @@ class TicketsCheckerController extends Controller
      */
     public function checkTicket()
     {
-        if ($this->noSuchTicket()) {
-            return $this->denyVisitor();
+        if ($this->_noSuchTicket()) {
+            return $this->_denyVisitor();
         }
-        if ($this->isFirstTimeEntry()) {
-            return $this->welcomeVisitor();
+        if ($this->_isFirstTimeEntry()) {
+            return $this->_welcomeVisitor();
         }
-        return $this->reEntry();
+        return $this->_reEntry();
     }
 
     /**
      * checks of the ticket exists in the DB
      * @return boolean
      */
-    public function noSuchTicket()
+    protected function _noSuchTicket()
     {
         return !$this->ticket;
     }
@@ -50,7 +50,7 @@ class TicketsCheckerController extends Controller
      * check if the visitor is entering for the first time
      * @return boolean
      */
-    public function isFirstTimeEntry()
+    protected function _isFirstTimeEntry()
     {
         return !$this->ticket->gate_used;
     }
@@ -58,7 +58,7 @@ class TicketsCheckerController extends Controller
     /**
      * Assign a particular gate number to the ticket and welcome the user to the venue
      */
-    public function assignGateNumberToTicket()
+    protected function _assignGateNumberToTicket()
     {
         $this->ticket->gate_used = $this->gate;
         $this->ticket->save();
@@ -68,7 +68,7 @@ class TicketsCheckerController extends Controller
      * response when the user is trying a reEntry
      * @return json
      */
-    public function reEntry()
+    protected function _reEntry()
     {
         return response()->json([
                 'status_code' => 420,
@@ -80,7 +80,7 @@ class TicketsCheckerController extends Controller
      * Deny the visitor as the ticket registration number did not match
      * @return json
      */
-    public function denyVisitor()
+    protected function _denyVisitor()
     {
         return response()->json([
             'status_code' => 404,
@@ -92,9 +92,9 @@ class TicketsCheckerController extends Controller
      * welcomes the visitor to the venue
      * @return json
      */
-    public function welcomeVisitor()
+    protected function _welcomeVisitor()
     {
-        $this->assignGateNumberToTicket();
+        $this->_assignGateNumberToTicket();
         return response()->json([
             'status_code' => 200,
             'message' => 'The visitor is successfully authenticated.'
