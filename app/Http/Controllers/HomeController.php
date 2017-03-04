@@ -77,4 +77,19 @@ class HomeController extends Controller
     {
         return view('passport-keys');
     }
+
+    public function isAppAllowed()
+    {
+        $allow_app_to_turn_on = Setting::where('setting', 'allow_app_to_turn_on')->first()->value;
+        if ($allow_app_to_turn_on) {
+            return response()->json([
+                    'status_code' => 200,
+                    'message' => 'App allowed'
+                ])->header('Status', 200);
+        }
+        return response()->json([
+                    'status_code' => 420,
+                    'message' => 'App NOT allowed'
+                ])->header('Status', 420);
+    }
 }

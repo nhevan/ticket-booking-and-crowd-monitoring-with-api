@@ -22,3 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/tickets', 'TicketsCheckerController@fetchAllTickets')->middleware('auth:api');
 
 Route::put('/check-ticket', 'TicketsCheckerController@checkTicket')->middleware('auth:api');
+
+Route::get('/is-app-allowed', 'HomeController@isAppAllowed')->middleware('auth:api');
