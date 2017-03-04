@@ -42,9 +42,8 @@ class TicketsController extends Controller
 	protected function getNextRegId()
 	{
 		$reg_id_start_number = 40000;
-
-		$last_ticket_id = Ticket::all()->pluck('id')->last();
-	    $reg_code = $reg_id_start_number + $last_ticket_id + 1;
+        $rnd = rand(80000,99000);
+	    $reg_code = $reg_id_start_number + $rnd + 1;
 	    $reg_id = 'YB-'.$reg_code;
 	    return $reg_id;
 	}
