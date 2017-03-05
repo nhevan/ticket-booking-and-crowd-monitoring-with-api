@@ -42,7 +42,7 @@ class TicketsController extends Controller
 	protected function getNextRegId()
 	{
 		$reg_id_start_number = 40000;
-        $rnd = rand(80000,99000);
+        $rnd = rand(80000,990000);
 	    $reg_code = $reg_id_start_number + $rnd + 1;
 	    $reg_id = 'YB-'.$reg_code;
 	    return $reg_id;
