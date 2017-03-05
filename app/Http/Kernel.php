@@ -57,5 +57,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'check-registration-status' => \App\Http\Middleware\RegistrationMustBeAllowed::class,
+        'check-ticket-quota' => \App\Http\Middleware\CheckQuota::class
     ];
 }
