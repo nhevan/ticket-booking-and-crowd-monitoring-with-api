@@ -18,7 +18,7 @@ class TicketsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['check-registration-status','check-ticket-quota'],['except' => ['resendTicket', 'downloadTicket']]);
+        $this->middleware(['check-ticket-quota', 'check-registration-status'],['except' => ['resendTicket', 'downloadTicket']]);
     }
 
 
