@@ -10,7 +10,7 @@ class QuestionsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('check-registration-status');
+        $this->middleware(['check-registration-status', 'check-ticket-quota']);
     }
 
 	/**
