@@ -24,6 +24,8 @@ Route::get('/register-visitor', 'TicketsController@registerVisitor');
 
 Route::post('/generate-ticket', 'TicketsController@generateTicket');
 
+Route::get('/check-quota', 'TicketsController@checkQuota');
+
 //Route::get('/test-pdf', 'TicketsController@generateTicket');
 
 // Auth::routes();

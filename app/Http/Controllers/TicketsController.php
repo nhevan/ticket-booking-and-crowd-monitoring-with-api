@@ -145,4 +145,9 @@ class TicketsController extends Controller
 		
 		return $res->getStatusCode();
     }
+
+    public function checkQuota()
+    {
+        dd(Ticket::count());
+    }
 }
