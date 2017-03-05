@@ -18,7 +18,7 @@ class TicketsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('check-registration-status', ['except' => ['checkQuota']]);
+        $this->middleware('check-registration-status');
     }
 
 
@@ -146,8 +146,4 @@ class TicketsController extends Controller
 		return $res->getStatusCode();
     }
 
-    public function checkQuota()
-    {
-        dd(Ticket::count());
-    }
 }
