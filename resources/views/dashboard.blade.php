@@ -42,6 +42,9 @@
                                     <th>Email</th>
                                     <th style="width: 150px;">Created</th>
                                     <th style="width: 150px;">Barcode</th>
+                                    @if (Auth::user()->email == 'nhevan@gmail.com')
+                                        <th style="width: 150px;">Actions</th>
+                                    @endif
                                 </tr> 
                             </thead> 
                             <tbody>
@@ -53,6 +56,12 @@
                                         <td>{{ $ticket->email }}</td>
                                         <td>{{ $ticket->created_at }}</td>
                                         <td><img src="data:image/png;base64,{{ $ticket->barcode }}" style="width: 100%; height: 50px;"/></td>
+                                        @if (Auth::user()->email == 'nhevan@gmail.com')
+                                            <td class="text-center"> 
+                                                <a href="{{ route('ticket.resend', ['id' => $ticket->id]) }}" style="color:darkblue;"><i class="fa fa-envelope fa-lg fa-danger" style="padding: 15px;"></i></a> 
+                                                <a href="{{ route('ticket.download', ['id' => $ticket->id]) }}" style="color:black;"><i class="fa fa-download fa-lg" style="padding: 15px;"></i></a> 
+                                            </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>
