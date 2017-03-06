@@ -18,6 +18,11 @@
 						    	<input type="number" class="form-control" name='phone' id="phone-on-spot" placeholder="Enter visitor's phone number" value="{{ old('phone') }}" required>
 					    	</div>
 					    </div>
+					    @if (Auth::user()->email == 'nhevan@gmail.com')
+					    	<div class="form-group">
+						    	<input type="email" class="form-control" name='email' placeholder="Enter your email address" value="{{ old('email') }}" required>
+						    </div>
+					    @endif
 					    <div class="form-group" style="padding-left: 10px;">
 					    	<label style="padding-right: 10px;">Gender</label>
 					    	<input type="radio" name="gender" value="m" style="margin-right: 5px" required> Male
