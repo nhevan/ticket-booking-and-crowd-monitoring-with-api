@@ -9,13 +9,13 @@
 	                <form  id="register-form" method="POST" action="{{ route('generate-on-spot') }}">
 					    {{ csrf_field() }}
 					    <div class="form-group">
-					    	<input type="text" class="form-control" name='name' placeholder="Enter visitor's name" value="{{ old('name') }}" required>
+					    	<input type="text" class="form-control" name='name' id="name-on-spot" placeholder="Enter visitor's name" value="{{ old('name') }}" required>
 					    </div>
 					    
 					    <div class="form-group">
 					    	<div class="input-group">
 					    		<div class="input-group-addon">+88</div>
-						    	<input type="number" class="form-control" name='phone' placeholder="Enter visitor's phone number" value="{{ old('phone') }}" required>
+						    	<input type="number" class="form-control" name='phone' id="phone-on-spot" placeholder="Enter visitor's phone number" value="{{ old('phone') }}" required>
 					    	</div>
 					    </div>
 					    <div class="form-group" style="padding-left: 10px;">
@@ -24,7 +24,7 @@
 					    	<input type="radio" name="gender" value="f" style="margin-left: 5px; margin-right: 5px;"> Female
 					    </div>
 					    <div class="form-group">
-					    	<button type="submit" class="btn btn-primary center-block">Request Ticket</button>
+					    	<button id="spot-registration-submit-button" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Generating Ticket" type="submit" class="btn btn-primary center-block">Generate Ticket</button>
 					    </div>
 					</form>
 					@if (count($errors))
