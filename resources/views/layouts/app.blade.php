@@ -36,7 +36,11 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        @if (Auth::user()->email == 'nhevan@gmail.com')
+                            Welcome #sudo
+                        @else
+                            {{ config('app.name', 'Laravel') }}
+                        @endif
                     </a>
                 </div>
 
