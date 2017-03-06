@@ -6,6 +6,7 @@ use Closure;
 use App\Ticket;
 use App\Setting;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Redirect;
 
 class CheckQuota
 {
@@ -24,6 +25,6 @@ class CheckQuota
             return $next($request);
         }
 
-        return new Response(view('registration-closed'));
+        return Redirect::away('http://www.youngbangla.org');
     }
 }
