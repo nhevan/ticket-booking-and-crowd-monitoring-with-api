@@ -101,4 +101,9 @@ class HomeController extends Controller
     {
         return view('on-spot-registration');
     }
+
+    public function generateOnSpotTicket()
+    {
+        dd("hello");
+    }
 }

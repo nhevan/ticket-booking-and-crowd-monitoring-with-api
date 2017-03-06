@@ -36,7 +36,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index');
 Route::get('/swap-reg-status', 'HomeController@swapRegistrationStatus');
-Route::get('/on-spot-registration', 'HomeController@onSpotRegistration');
+Route::get('/on-spot-registration', 'HomeController@onSpotRegistration')->name('on-spot-registration');
+Route::post('/on-spot-registration', 'HomeController@generateOnSpotTicket')->name('generate-on-spot');
 
 Route::get('/passport-keys', 'HomeController@passport');
 

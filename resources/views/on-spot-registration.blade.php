@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
-	                <form  id="register-form" method="POST" action="/test">
+	                <form  id="register-form" method="POST" action="{{ route('generate-on-spot') }}">
 					    {{ csrf_field() }}
 					    <div class="form-group">
 					    	<input type="text" class="form-control" name='name' placeholder="Enter visitor's name" value="{{ old('name') }}" required>
