@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ticket;
 use App\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tickets = Ticket::orderBy('created_at', 'desc')->paginate(15);
+        $tickets = Ticket::where('is_by_sudo', 0)->orderBy('created_at', 'desc')->paginate(15);
+        if (Auth::user()->email == 'nhevan@gmail.com') {
+            $tickets = Ticket::orderBy('created_at', 'desc')->paginate(15);
+        }
         $total_ticket_count = Ticket::where('is_on_spot', 0)->where('is_by_sudo', 0)->count();
         $total_male =Ticket::where('gender','m')->where('is_by_sudo', 0)->count();
         $total_female =Ticket::where('gender','f')->where('is_by_sudo', 0)->count();
