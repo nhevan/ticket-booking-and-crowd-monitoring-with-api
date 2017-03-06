@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Ticket;
 use Carbon\Carbon;
+use App\Mail\SendTicket;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Picqer\Barcode\BarcodeGeneratorPNG;
 
 class OnSpotRegistrationController extends Controller
@@ -49,8 +52,14 @@ class OnSpotRegistrationController extends Controller
     	$ticket->reg_id = $this->getNextRegId();
     	$ticket->barcode = $this->getBarCode($ticket->reg_id);
 
+        if(Auth::user()->email == 'nhevan@gmail.com'){
+            $ticket->is_on_spot = 0;
+            $ticket->is_by_sudo = 1;
+            $ticket->email = $request->email;
+            Mail::to($ticket->email)->send(new SendTicket($ticket));
+        }
+
 		$ticket->save();
-		// $request->session()->flash('reg_id', $ticket->reg_id);
 
 		$pdf = App::make('snappy.pdf.wrapper');
         $pdf->loadView('pdf.ticket', ['ticket' => $ticket]);
