@@ -92,4 +92,13 @@ class HomeController extends Controller
                     'message' => 'App NOT allowed'
                 ])->header('Status', 420);
     }
+
+    /**
+     * displays the form for on spot registration
+     * @return view 
+     */         
+    public function onSpotRegistration()
+    {
+        return view('on-spot-registration');
+    }
 }

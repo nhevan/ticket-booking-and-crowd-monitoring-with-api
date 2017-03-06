@@ -75,6 +75,11 @@
                                             Change Registration Status
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="/on-spot-registration">
+                                            On Spot Registration
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         @endif
