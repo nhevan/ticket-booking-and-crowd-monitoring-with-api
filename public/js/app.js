@@ -11527,7 +11527,7 @@ module.exports = g;
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
+/* WEBPACK VAR INJECTION */(function($) {
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -11551,8 +11551,18 @@ Vue.component('passport-authorized-clients', __webpack_require__(44));
 Vue.component('passport-personal-access-tokens', __webpack_require__(46));
 
 var app = new Vue({
-    el: '#app'
+  el: '#app'
 });
+
+$('#spot-registration-submit-button').click(function () {
+  $(this).button('loading');
+  window.setTimeout(function () {
+    $('#name-on-spot').val("");
+    $('#phone-on-spot').val("");
+    $("#spot-registration-submit-button").button('reset');
+  }, 3000);
+});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 14 */

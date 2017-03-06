@@ -33,3 +33,12 @@ Vue.component(
 const app = new Vue({
     el: '#app'
 });
+
+$('#spot-registration-submit-button').click(function(){
+	$(this).button('loading');
+	window.setTimeout(function(){
+		$('#name-on-spot').val("");
+		$('#phone-on-spot').val("");
+		$("#spot-registration-submit-button").button('reset');
+	}, 3000);
+});

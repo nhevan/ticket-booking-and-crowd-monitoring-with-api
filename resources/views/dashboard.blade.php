@@ -10,19 +10,15 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <p><b>Total number of tickets generated :</b> {{ $total_ticket_count }}</p>
-                                <p><b>Total number of male :</b> {{ $total_male }}</p>
-                                <p><b>Total number of female :</b> {{ $total_female }}</p>
+                                <p><b>Total Male :</b> {{ $total_male }}</p>
+                                <p><b>Total Female :</b> {{ $total_female }}</p>
+                                <p><b>Total On Spot registration:</b> {{ $on_spot_count }}  <b><i class="fa fa-male fa-lg" aria-hidden="true"></i> : </b>{{$on_spot_male}} <b><i class="fa fa-female fa-lg" aria-hidden="true"></i> : </b>{{$on_spot_female}}</p>
                             </div>
                             <div class="col-md-6">
-                                <p style="margin-top: 30px;text-align: center;">Registration process is currently 
-                                    <b>
-                                        @if($is_registration_allowed == 0)
-                                            <span style="color: #d9534f;">ON PAUSE</span>
-                                        @else
-                                            <span style="color: #5cb85c;">RUNNING</span>
-                                        @endif
-                                    </b>
-                                </p>
+                                <p><b>Total Male in venue:</b> {{ $male_in_venue }}</p>
+                                <p><b>Total Female in venue:</b> {{ $female_in_venue }}</p>
+                                <p><b>Total VIP in venue:</b> {{ $vip_in_venue }}</p>
+                                <p><b>Total Crowd :</b>{{ $total_crowd }}</p>
                             </div>
                         </div>
                     </div>
