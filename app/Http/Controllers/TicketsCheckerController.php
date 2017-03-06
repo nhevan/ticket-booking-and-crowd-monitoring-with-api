@@ -12,11 +12,13 @@ class TicketsCheckerController extends Controller
     protected $ticket;
     protected $gate;
     protected $reg_id;
+    protected $request;
 
     public function __construct(Request $request)
     {
         $this->gate = $request->gate;
         $this->reg_id = $request->reg_id;
+        $this->request = $request;
         $this->ticket = Ticket::where('reg_id', $request->reg_id)->first();
     }
 
@@ -32,6 +34,7 @@ class TicketsCheckerController extends Controller
      */
     public function checkTicket()
     {
+        $this->_validateRequest();
         if ($this->_isVipBarcode()) {
             return $this->_welcomeVip();
         }
@@ -45,6 +48,21 @@ class TicketsCheckerController extends Controller
             return $this->_welcomeVisitor();
         }
         return $this->_reEntry();
+    }
+
+    /**
+     * validates the submitted request and checks for reg_id and gate key
+     */
+    protected function _validateRequest()
+    {
+        $messages = [
+            'reg_id.required' => 'Please provide reg_id key.',
+            'gate.required' => 'Please provide gate key',
+        ];
+        return $this->validate($this->request, [
+            'reg_id' => 'required',
+            'gate' => 'required'
+        ], $messages);
     }
 
     /**
