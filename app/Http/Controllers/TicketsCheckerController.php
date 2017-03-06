@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ticket;
+use App\Setting;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -38,6 +39,9 @@ class TicketsCheckerController extends Controller
             return $this->_denyVisitor();
         }
         if ($this->_isFirstTimeEntry()) {
+            if($this->_isVip()){
+                return $this->_welcomeVip();
+            }
             return $this->_welcomeVisitor();
         }
         return $this->_reEntry();
@@ -61,6 +65,7 @@ class TicketsCheckerController extends Controller
      */
     protected function _welcomeVip()
     {
+        $this->_incrementVipCount();
         return response()->json([
                 'status_code' => 200,
                 'message' => 'VIP'
@@ -76,6 +81,21 @@ class TicketsCheckerController extends Controller
         return !$this->ticket;
     }
 
+    protected function _incrementVipCount()
+    {
+        $vip_count = Setting::where('setting', 'total_vip_entered')->first();
+        $vip_count->value = $vip_count->value + 1;
+        $vip_count->save();
+    }
+
+    /**
+     * checks of a visitor is set to be VIP
+     * @return boolean 
+     */
+    protected function _isVip()
+    {
+        return $this->ticket->is_vip;
+    }
     /**
      * check if the visitor is entering for the first time
      * @return boolean
