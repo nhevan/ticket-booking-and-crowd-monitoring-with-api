@@ -10,10 +10,12 @@ class TicketsCheckerController extends Controller
 {
     protected $ticket;
     protected $gate;
+    protected $reg_id;
 
     public function __construct(Request $request)
     {
         $this->gate = $request->gate;
+        $this->reg_id = $request->reg_id;
         $this->ticket = Ticket::where('reg_id', $request->reg_id)->first();
     }
 
@@ -29,6 +31,9 @@ class TicketsCheckerController extends Controller
      */
     public function checkTicket()
     {
+        if ($this->_isVipBarcode()) {
+            return $this->_welcomeVip();
+        }
         if ($this->_noSuchTicket()) {
             return $this->_denyVisitor();
         }
@@ -36,6 +41,30 @@ class TicketsCheckerController extends Controller
             return $this->_welcomeVisitor();
         }
         return $this->_reEntry();
+    }
+
+    /**
+     * checks if a barcode starts with JBC
+     * @return boolean
+     */
+    protected function _isVipBarcode()
+    {
+        $split_reg_code = explode("-",$this->reg_id);
+        if ($split_reg_code[0] == "JBC" && (int)$split_reg_code[1] <= 25000) {
+            return true;
+        }
+    }
+
+    /**
+     * welcome the vip visitor
+     * @return json 
+     */
+    protected function _welcomeVip()
+    {
+        return response()->json([
+                'status_code' => 200,
+                'message' => 'VIP'
+            ])->header('Status', 200);
     }
 
     /**
