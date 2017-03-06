@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
                 <div class="panel-body">
 	                <form  id="register-form" method="POST" action="{{ route('generate-on-spot') }}">
@@ -17,6 +17,11 @@
 					    		<div class="input-group-addon">+88</div>
 						    	<input type="number" class="form-control" name='phone' placeholder="Enter visitor's phone number" value="{{ old('phone') }}" required>
 					    	</div>
+					    </div>
+					    <div class="form-group" style="padding-left: 10px;">
+					    	<label style="padding-right: 10px;">Gender</label>
+					    	<input type="radio" name="gender" value="m" style="margin-right: 5px" required> Male
+					    	<input type="radio" name="gender" value="f" style="margin-left: 5px; margin-right: 5px;"> Female
 					    </div>
 					    <div class="form-group">
 					    	<button type="submit" class="btn btn-primary center-block">Request Ticket</button>

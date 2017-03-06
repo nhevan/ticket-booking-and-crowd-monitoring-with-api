@@ -93,17 +93,4 @@ class HomeController extends Controller
                 ])->header('Status', 420);
     }
 
-    /**
-     * displays the form for on spot registration
-     * @return view 
-     */         
-    public function onSpotRegistration()
-    {
-        return view('on-spot-registration');
-    }
-
-    public function generateOnSpotTicket()
-    {
-        dd("hello");
-    }
 }
