@@ -26,9 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $tickets = Ticket::orderBy('created_at', 'desc')->paginate(15);
-        $total_ticket_count = Ticket::where('is_on_spot', 0)->count();
-        $total_male =Ticket::where('gender','m')->count();
-        $total_female =Ticket::where('gender','f')->count();
+        $total_ticket_count = Ticket::where('is_on_spot', 0)->where('is_by_sudo', 0)->count();
+        $total_male =Ticket::where('gender','m')->where('is_by_sudo', 0)->count();
+        $total_female =Ticket::where('gender','f')->where('is_by_sudo', 0)->count();
         $is_registration_allowed = Setting::where('setting', 'is_registration_allowed')->first()->value;
 
         $on_spot_count = Ticket::where('is_on_spot','1')->count();
