@@ -56,7 +56,7 @@ class OnSpotRegistrationController extends Controller
         $pdf->loadView('pdf.ticket', ['ticket' => $ticket]);
         $pdf->setPaper('a4')->setOption('margin-bottom', '0mm');
 
-		return $pdf->download();
+		return $pdf->download('joy-bangla-'.$ticket->name.'.pdf');
     }
 
     /**
