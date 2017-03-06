@@ -11,6 +11,11 @@ use Picqer\Barcode\BarcodeGeneratorPNG;
 
 class OnSpotRegistrationController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
     
     /**
      * displays the form for on spot registration
