@@ -26,12 +26,23 @@ class HomeController extends Controller
     public function index()
     {
         $tickets = Ticket::orderBy('created_at', 'desc')->paginate(15);
-        $total_ticket_count = Ticket::count();
+        $total_ticket_count = Ticket::where('is_on_spot', 0)->count();
         $total_male =Ticket::where('gender','m')->count();
         $total_female =Ticket::where('gender','f')->count();
         $is_registration_allowed = Setting::where('setting', 'is_registration_allowed')->first()->value;
 
-        return view('dashboard', compact('tickets', 'is_registration_allowed', 'total_ticket_count','total_male','total_female'));
+        $on_spot_count = Ticket::where('is_on_spot','1')->count();
+        $on_spot_male = Ticket::where('is_on_spot','1')->where('gender','m')->count();
+        $on_spot_female = Ticket::where('is_on_spot','1')->where('gender','f')->count();
+        $male_in_venue = Ticket::where('gender','m')->where('gate_used', '<>', 0)->count();
+        $male_in_venue += $on_spot_male;
+        $female_in_venue = Ticket::where('gender','f')->where('gate_used', '<>', 0)->count();
+        $female_in_venue += $on_spot_female;
+        $vip_in_venue = Setting::where('setting', 'total_vip_entered')->first()->value;
+
+        $total_crowd = $male_in_venue + $female_in_venue + $vip_in_venue;
+
+        return view('dashboard', compact('tickets', 'is_registration_allowed', 'total_ticket_count','total_male','total_female', 'on_spot_count', 'male_in_venue', 'female_in_venue', 'vip_in_venue', 'on_spot_male', 'on_spot_female', 'total_crowd'));
     }
 
     /**
