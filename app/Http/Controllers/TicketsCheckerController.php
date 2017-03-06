@@ -19,7 +19,7 @@ class TicketsCheckerController extends Controller
 
     public function fetchAllTickets()
     {
-    	return Ticket::all('id', 'reg_id','name','phone');
+    	return Ticket::all('id', 'reg_id','name','phone', 'is_vip');
     }
 
     /**
