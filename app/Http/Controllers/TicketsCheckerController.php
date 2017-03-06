@@ -103,7 +103,8 @@ class TicketsCheckerController extends Controller
     	$now = Carbon::now();
         return response()->json([
                 'status_code' => 420,
-                'message' => 'The visitor has already entered the venue through gate '.$this->ticket->gate_used.' approximately '.$this->ticket->updated_at->diffForHumans($now, true).' ago.'
+                'message' => 'Re-Entry',
+                'info' => 'The visitor has already entered the venue through gate '.$this->ticket->gate_used.' approximately '.$this->ticket->updated_at->diffForHumans($now, true).' ago.'
             ])->header('Status', 420);
     }
 
@@ -115,7 +116,7 @@ class TicketsCheckerController extends Controller
     {
         return response()->json([
             'status_code' => 404,
-            'message' => 'The provided barcode does not exist in our system.'
+            'message' => 'Not Allowed'
         ])->header('Status', 404);
     }
 
@@ -128,7 +129,7 @@ class TicketsCheckerController extends Controller
         $this->_assignGateNumberToTicket();
         return response()->json([
             'status_code' => 200,
-            'message' => 'The visitor is successfully authenticated.'
+            'message' => 'Pass'
         ])->header('Status', 200);
     }
 }
