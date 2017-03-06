@@ -58,10 +58,11 @@ class TicketsCheckerController extends Controller
         $messages = [
             'reg_id.required' => 'Please provide reg_id key.',
             'gate.required' => 'Please provide gate key',
+            'gate.numeric' => 'Gate number must be in numeric format',
         ];
         return $this->validate($this->request, [
             'reg_id' => 'required',
-            'gate' => 'required'
+            'gate' => 'required|numeric'
         ], $messages);
     }
 
