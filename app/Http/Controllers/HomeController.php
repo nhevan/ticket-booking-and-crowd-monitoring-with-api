@@ -27,13 +27,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $frequency_interval = Setting::where('setting','frequency_interval')->first()->value;
-        $now = Carbon::now()->subMinutes(50);
-        $tmp = Ticket::where('updated_at', '>', $now)->get();
-        dd($tmp);
         $tickets = Ticket::where('is_by_sudo', 0)->orderBy('created_at', 'desc')->paginate(15);
         if (Auth::user()->email == 'nhevan@gmail.com') {
             $tickets = Ticket::orderBy('created_at', 'desc')->paginate(15);
+
+            $frequency_interval = Setting::where('setting','frequency_interval')->first()->value;
+            $time_span = Carbon::now()->subMinutes($frequency_interval);
+            $gate_13_rate = Ticket::where('gate_used', 13)->where('updated_at', '>', $time_span)->count();
+            $gate_14_rate = Ticket::where('gate_used', 14)->where('updated_at', '>', $time_span)->count();
+            $gate_15_rate = Ticket::where('gate_used', 15)->where('updated_at', '>', $time_span)->count();
         }
         $total_ticket_count = Ticket::where('is_on_spot', 0)->where('is_by_sudo', 0)->count();
         $total_male =Ticket::where('gender','m')->where('is_by_sudo', 0)->count();
@@ -51,7 +53,7 @@ class HomeController extends Controller
 
         $total_crowd = $male_in_venue + $female_in_venue + $vip_in_venue;
 
-        return view('dashboard', compact('tickets', 'is_registration_allowed', 'total_ticket_count','total_male','total_female', 'on_spot_count', 'male_in_venue', 'female_in_venue', 'vip_in_venue', 'on_spot_male', 'on_spot_female', 'total_crowd'));
+        return view('dashboard', compact('tickets', 'is_registration_allowed', 'total_ticket_count','total_male','total_female', 'on_spot_count', 'male_in_venue', 'female_in_venue', 'vip_in_venue', 'on_spot_male', 'on_spot_female', 'total_crowd', 'frequency_interval' ,'gate_13_rate', 'gate_14_rate', 'gate_15_rate'));
     }
 
     /**
