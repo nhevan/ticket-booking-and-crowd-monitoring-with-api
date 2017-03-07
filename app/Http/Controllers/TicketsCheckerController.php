@@ -139,12 +139,24 @@ class TicketsCheckerController extends Controller
      */
     protected function _reEntry()
     {
+        $this->_incrementRentryCount();
     	$now = Carbon::now();
         return response()->json([
                 'status_code' => 420,
                 'message' => 'Re-Entry!',
                 'info' => 'The visitor has already entered the venue through gate '.$this->ticket->gate_used.' approximately '.$this->ticket->updated_at->diffForHumans($now, true).' ago.'
             ])->header('Status', 420);
+    }
+
+    /**
+     * increases the re-entry count
+     * @return [type] [description]
+     */
+    protected function _incrementRentryCount()
+    {
+        $rentry_count = Setting::where('setting', 'total_re_entry')->first();
+        $rentry_count->value = $rentry_count->value + 1;
+        $rentry_count->save();
     }
 
     /**
