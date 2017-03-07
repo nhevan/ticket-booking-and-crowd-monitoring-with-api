@@ -170,6 +170,7 @@ return [
         Barryvdh\Snappy\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
+        "Khill\Lavacharts\Laravel\LavachartsServiceProvider",
 
         /*
          * Application Service Providers...
