@@ -4,6 +4,19 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            @if (Auth::user()->email == 'nhevan@gmail.com')
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="container">
+                              <div class="row">
+                                  <div class="col-md-4"><p><b>Gate 13 : </b> x entry/y min</p></div>
+                                  <div class="col-md-4"><p><b>Gate 14 : </b> x entry/y min</p></div>
+                                  <div class="col-md-4"><p><b>Gate 15 : </b> x entry/y min</p></div>
+                              </div>
+                          </div>  
+                    </div>
+                </div>
+            @endif
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="container">

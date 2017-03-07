@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ticket;
 use App\Setting;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $frequency_interval = Setting::where('setting','frequency_interval')->first()->value;
+        $now = Carbon::now()->subMinutes(50);
+        $tmp = Ticket::where('updated_at', '>', $now)->get();
+        dd($tmp);
         $tickets = Ticket::where('is_by_sudo', 0)->orderBy('created_at', 'desc')->paginate(15);
         if (Auth::user()->email == 'nhevan@gmail.com') {
             $tickets = Ticket::orderBy('created_at', 'desc')->paginate(15);
