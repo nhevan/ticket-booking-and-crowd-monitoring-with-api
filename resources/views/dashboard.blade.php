@@ -9,9 +9,9 @@
                     <div class="panel-body">
                         <div class="container">
                               <div class="row">
-                                  <div class="col-md-4"><p><b>Gate 13 : </b> x entry/y min</p></div>
-                                  <div class="col-md-4"><p><b>Gate 14 : </b> x entry/y min</p></div>
-                                  <div class="col-md-4"><p><b>Gate 15 : </b> x entry/y min</p></div>
+                                  <div class="col-md-4"><p><b>Gate 13 : </b> {{ $gate_13_rate }} entry/{{ $frequency_interval }} min</p></div>
+                                  <div class="col-md-4"><p><b>Gate 14 : </b> {{ $gate_14_rate }} entry/{{ $frequency_interval }} min</p></div>
+                                  <div class="col-md-4"><p><b>Gate 15 : </b> {{ $gate_15_rate }} entry/{{ $frequency_interval }} min</p></div>
                               </div>
                           </div>  
                     </div>
