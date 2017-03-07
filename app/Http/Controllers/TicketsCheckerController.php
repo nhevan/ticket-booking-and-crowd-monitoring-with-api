@@ -87,7 +87,7 @@ class TicketsCheckerController extends Controller
         $this->_incrementVipCount();
         return response()->json([
                 'status_code' => 200,
-                'message' => 'VIP'
+                'message' => 'VIP!'
             ])->header('Status', 200);
     }
 
@@ -142,7 +142,7 @@ class TicketsCheckerController extends Controller
     	$now = Carbon::now();
         return response()->json([
                 'status_code' => 420,
-                'message' => 'Re-Entry',
+                'message' => 'Re-Entry!',
                 'info' => 'The visitor has already entered the venue through gate '.$this->ticket->gate_used.' approximately '.$this->ticket->updated_at->diffForHumans($now, true).' ago.'
             ])->header('Status', 420);
     }
@@ -155,7 +155,7 @@ class TicketsCheckerController extends Controller
     {
         return response()->json([
             'status_code' => 404,
-            'message' => 'Not Allowed'
+            'message' => 'Failed!'
         ])->header('Status', 404);
     }
 
@@ -168,7 +168,7 @@ class TicketsCheckerController extends Controller
         $this->_assignGateNumberToTicket();
         return response()->json([
             'status_code' => 200,
-            'message' => 'Pass'
+            'message' => 'Passed!'
         ])->header('Status', 200);
     }
 }
