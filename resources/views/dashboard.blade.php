@@ -8,11 +8,20 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="container">
-                              <div class="row">
-                                  <div class="col-md-4"><p><b>Gate 13 : </b> {{ $gate_13_rate }} entry/{{ $frequency_interval }} min</p></div>
-                                  <div class="col-md-4"><p><b>Gate 14 : </b> {{ $gate_14_rate }} entry/{{ $frequency_interval }} min</p></div>
-                                  <div class="col-md-4"><p><b>Gate 15 : </b> {{ $gate_15_rate }} entry/{{ $frequency_interval }} min</p></div>
-                              </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p><b>Gate 13 : </b> {{ $gate_13_rate }} entry/{{ $frequency_interval }} min</p>
+                                    <p><b>Total through gate 13 :</b> {{ $total_through_gate_13 }} </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p><b>Gate 14 : </b> {{ $gate_14_rate }} entry/{{ $frequency_interval }} min</p>
+                                    <p><b>Total through gate 14 :</b> {{ $total_through_gate_14 }} </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p><b>Gate 15 : </b> {{ $gate_15_rate }} entry/{{ $frequency_interval }} min</p>
+                                    <p><b>Total through gate 15 :</b> {{ $total_through_gate_15 }} </p>
+                                </div>
+                            </div>
                           </div>  
                     </div>
                 </div>

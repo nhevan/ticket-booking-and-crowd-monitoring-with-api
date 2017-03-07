@@ -36,6 +36,9 @@ class HomeController extends Controller
             $gate_13_rate = Ticket::where('gate_used', 13)->where('updated_at', '>', $time_span)->count();
             $gate_14_rate = Ticket::where('gate_used', 14)->where('updated_at', '>', $time_span)->count();
             $gate_15_rate = Ticket::where('gate_used', 15)->where('updated_at', '>', $time_span)->count();
+            $total_through_gate_13 = Ticket::where('gate_used', 13)->count();
+            $total_through_gate_14 = Ticket::where('gate_used', 14)->count();
+            $total_through_gate_15 = Ticket::where('gate_used', 15)->count();
         }
         $total_ticket_count = Ticket::where('is_on_spot', 0)->where('is_by_sudo', 0)->count();
         $total_male =Ticket::where('gender','m')->where('is_by_sudo', 0)->count();
@@ -53,7 +56,7 @@ class HomeController extends Controller
 
         $total_crowd = $male_in_venue + $female_in_venue + $vip_in_venue;
 
-        return view('dashboard', compact('tickets', 'is_registration_allowed', 'total_ticket_count','total_male','total_female', 'on_spot_count', 'male_in_venue', 'female_in_venue', 'vip_in_venue', 'on_spot_male', 'on_spot_female', 'total_crowd', 'frequency_interval' ,'gate_13_rate', 'gate_14_rate', 'gate_15_rate'));
+        return view('dashboard', compact('tickets', 'is_registration_allowed', 'total_ticket_count','total_male','total_female', 'on_spot_count', 'male_in_venue', 'female_in_venue', 'vip_in_venue', 'on_spot_male', 'on_spot_female', 'total_crowd', 'frequency_interval' ,'gate_13_rate', 'gate_14_rate', 'gate_15_rate', 'total_through_gate_13', 'total_through_gate_14', 'total_through_gate_15'));
     }
 
     /**
