@@ -61,8 +61,8 @@ class HomeController extends Controller
             $lava = new Lava();
             $crowds = $lava->DataTable();
 
-            $crowds->addStringColumn('Crown')
-                    ->addNumberColumn('Percent')
+            $crowds->addStringColumn('Crowd')
+                    ->addNumberColumn('count')
                     ->addRow(['Male', $male_in_venue])
                     ->addRow(['Female', $female_in_venue])
                     ->addRow(['VIP', $vip_in_venue]);
@@ -71,12 +71,7 @@ class HomeController extends Controller
                 'width' => 'auto',
                 'height' => 130,
                 'title'  => 'Total Crowd : '.$total_crowd,
-                'is3D'   => false,
-                'slices' => [
-                    ['offset' => 0.0],
-                    ['offset' => 0.0],
-                    ['offset' => 0.0]
-                ]
+                'is3D'   => false
             ]);
         }
 
