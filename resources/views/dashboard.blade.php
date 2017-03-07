@@ -37,10 +37,15 @@
                                 <p><b>Total On Spot registration:</b> {{ $on_spot_count }}  <b><i class="fa fa-male fa-lg" aria-hidden="true"></i> : </b>{{$on_spot_male}} <b><i class="fa fa-female fa-lg" aria-hidden="true"></i> : </b>{{$on_spot_female}}</p>
                             </div>
                             <div class="col-md-6">
-                                <p><b>Total Male in venue:</b> {{ $male_in_venue }}</p>
-                                <p><b>Total Female in venue:</b> {{ $female_in_venue }}</p>
-                                <p><b>Total VIP in venue:</b> {{ $vip_in_venue }}</p>
-                                <p><b>Total Crowd :</b>{{ $total_crowd }}</p>
+                                <div style="float: left;">
+                                    <p><b>Total Male in venue:</b> {{ $male_in_venue }}</p>
+                                    <p><b>Total Female in venue:</b> {{ $female_in_venue }}</p>
+                                    <p><b>Total VIP in venue:</b> {{ $vip_in_venue }}</p>
+                                    <p><b>Total Crowd :</b>{{ $total_crowd }}</p>    
+                                </div>
+                                
+                                <div id="chart-div" style="width: 350px;float: left;"></div>
+                                {!! $lava->render('PieChart','Joy-Bangla', 'chart-div') !!}
                             </div>
                         </div>
                     </div>
