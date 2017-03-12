@@ -43,9 +43,10 @@
                                     <p><b>Total VIP in venue:</b> {{ $vip_in_venue }}</p>
                                     <p><b>Total Crowd :</b>{{ $total_crowd }}</p>    
                                 </div>
-                                
-                                <div id="chart-div" style="width: 350px;float: left;"></div>
-                                {!! $lava->render('PieChart','Joy-Bangla', 'chart-div') !!}
+                                @if (Auth::user()->email == 'nhevan@gmail.com')
+                                    <div id="chart-div" style="width: 350px;float: left;"></div>
+                                    {!! $lava->render('PieChart','Joy-Bangla', 'chart-div') !!}
+                                @endif
                             </div>
                         </div>
                     </div>
